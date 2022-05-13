@@ -1,6 +1,7 @@
 {
     "name": "mennotempelaar/nova-news-resource-tool",
     "description": "A resource tool for Laravel Nova which adds content management features for managing news posts.",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -8,5 +9,12 @@
             "email": "men.tempelaar@gmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "MT\\NewsResourceTool\\": "src"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    }
 }
