@@ -3,3 +3,5 @@
 
 # NPM & Yarn
 node_modules/
+
+/vendor/

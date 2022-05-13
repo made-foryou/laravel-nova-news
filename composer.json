@@ -1,0 +1,12 @@
+{
+    "name": "mennotempelaar/nova-news-resource-tool",
+    "description": "A resource tool for Laravel Nova which adds content management features for managing news posts.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Menno Tempelaar",
+            "email": "men.tempelaar@gmail.com"
+        }
+    ],
+    "require": {}
+}
