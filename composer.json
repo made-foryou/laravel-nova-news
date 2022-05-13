@@ -1,16 +1,32 @@
 {
     "name": "mennotempelaar/nova-news-resource-tool",
     "description": "A resource tool for Laravel Nova which adds content management features for managing news posts.",
-    "type": "library",
     "license": "MIT",
+    "version": "0.0.0",
+    "keywords": [
+        "laraval",
+        "nova",
+        "package",
+        "resource",
+        "tool",
+        "news",
+        "cms"
+    ],
     "authors": [
         {
             "name": "Menno Tempelaar",
             "email": "men.tempelaar@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "laravel/nova": "^4.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -19,7 +35,8 @@
     },
     "autoload": {
         "psr-4": {
-            "MennoTempelaar\\NovaNewsTool\\": "src"
+            "MennoTempelaar\\NovaNewsTool\\": "src",
+            "MennoTempelaar\\NovaNewsTool\\Database\\Factories\\": "database/factories"
         }
     },
     "extra": {

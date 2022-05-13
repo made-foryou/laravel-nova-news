@@ -1,5 +1,7 @@
 <?php
 
+use MennoTempelaar\NovaNewsTool\Tests\TestCase;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -11,8 +13,7 @@
 |
 */
 
-uses(\MennoTempelaar\NovaNewsTool\Tests\TestCase::class)
-    ->in('Feature');
+uses(TestCase::class);
 
 /*
 |--------------------------------------------------------------------------
