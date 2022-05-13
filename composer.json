@@ -9,6 +9,9 @@
             "email": "men.tempelaar@gmail.com"
         }
     ],
+    "require": {
+        "php": "^8.0"
+    },
     "require-dev": {
         "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.5"
@@ -23,6 +26,11 @@
             "providers": [
                 "MennoTempelaar\\NovaNewsTool\\NewsServiceProvider"
             ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MennoTempelaar\\NovaNewsTool\\Tests\\": "tests"
         }
     }
 }
