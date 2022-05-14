@@ -2,11 +2,17 @@
 
 namespace MennoTempelaar\NovaNewsTool\Nova;
 
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Panel;
+use Marshmallow\CharcountedFields\TextCounted;
 use MennoTempelaar\NovaNewsTool\Models\Post as PostModel;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
+
+use function __;
 
 
 class Post extends Resource
@@ -49,8 +55,38 @@ class Post extends Resource
 
         return [
 
+            Panel::make(__('nova-news-tool::post_data.panel.title'), [
+                TextCounted::make(
+                    __('nova-news-tool::post_data.field.title'),
+                    'title'
+                )
+                    ->minChars(10)
+                    ->maxChars(120)
+                    ->warningAt(70)
+                    ->help(__('nova-news-tool::post_data.field.title_help')),
+
+                Image::make(
+                    __('nova-news-tool::post_data.field.image'),
+                    'image',
+                )->help(__('nova-news-tool::post_data.field.image_help')),
+
+                Trix::make(
+                    __('nova-news-tool::post_data.field.contents'),
+                    'contents',
+                ),
+            ]),
+
             Panel::make(__('nova-news-tool::system_data.title'), [
                 ID::make()->sortable(),
+
+                DateTime::make(
+                    __('nova-news-tool::system_data.updated_at'),
+                    'updated_at'
+                )->readonly(),
+                DateTime::make(
+                    __('nova-news-tool::system_data.created_at'),
+                    'created_at'
+                )->readonly(),
             ]),
 
         ];

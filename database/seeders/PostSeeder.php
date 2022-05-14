@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace MennoTempelaar\NovaNewsTool\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use MennoTempelaar\NovaNewsTool\Models\Post;

@@ -4,6 +4,7 @@ namespace MennoTempelaar\NovaNewsTool\Providers;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use MennoTempelaar\NovaNewsTool\Nova\Post;
 
 
 class NewsNovaServiceProvider extends NovaApplicationServiceProvider
@@ -17,7 +18,9 @@ class NewsNovaServiceProvider extends NovaApplicationServiceProvider
     public function boot(): void
     {
 
-        Nova::resourcesIn(__DIR__ . '/../Nova/');
+        Nova::resources([
+            Post::class,
+        ]);
 
     }
 }

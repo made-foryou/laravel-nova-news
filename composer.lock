@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94c2ce5540c86298b699d06f19d4d7b3",
+    "content-hash": "fcc4d73ac0e370f647982bd10efdcb0d",
     "packages": [
         {
             "name": "box/spout",
@@ -1789,6 +1789,53 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "marshmallow/nova-charcounted-fields",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marshmallow-packages/nova-charcounted-fields.git",
+                "reference": "3c5638847dfd720677355091286e31bb45ce6dfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marshmallow-packages/nova-charcounted-fields/zipball/3c5638847dfd720677355091286e31bb45ce6dfb",
+                "reference": "3c5638847dfd720677355091286e31bb45ce6dfb",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.0",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Marshmallow\\CharcountedFields\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Marshmallow\\CharcountedFields\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Text and textarea fields with a character counter.",
+            "keywords": [
+                "character counter",
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/marshmallow-packages/nova-charcounted-fields/issues",
+                "source": "https://github.com/marshmallow-packages/nova-charcounted-fields/tree/v2.0.0"
+            },
+            "time": "2022-05-04T16:32:43+00:00"
         },
         {
             "name": "monolog/monolog",

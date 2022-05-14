@@ -13,14 +13,14 @@ class NewsServiceProvider extends ServiceProvider
 
         // Merging the package configuration
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/config.php',
+            __DIR__ . '/../../config/config.php',
             'nova-news-tool'
         );
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         $this->loadTranslationsFrom(
-            __DIR__ . '/../lang',
+            __DIR__ . '/../../lang',
             'nova-news-tool'
         );
 
@@ -34,7 +34,7 @@ class NewsServiceProvider extends ServiceProvider
             // Exports the configuration file from this package to the project
             $this->publishes(
                 [
-                    __DIR__ . '/../config/config.php' => config_path(
+                    __DIR__ . '/../../config/config.php' => config_path(
                         'nova-news-tool.php'
                     ),
                 ],
