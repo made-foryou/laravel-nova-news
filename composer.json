@@ -42,7 +42,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MennoTempelaar\\NovaNewsTool\\NewsServiceProvider"
+                "MennoTempelaar\\NovaNewsTool\\Providers\\NewsServiceProvider",
+                "MennoTempelaar\\NovaNewsTool\\Providers\\NewsNovaServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool;
+namespace MennoTempelaar\NovaNewsTool\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -14,6 +14,13 @@ class NewsServiceProvider extends ServiceProvider
         // Merging the package configuration
         $this->mergeConfigFrom(
             __DIR__ . '/../config/config.php',
+            'nova-news-tool'
+        );
+
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+        $this->loadTranslationsFrom(
+            __DIR__ . '/../lang',
             'nova-news-tool'
         );
 
@@ -35,8 +42,6 @@ class NewsServiceProvider extends ServiceProvider
             );
 
         }
-
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
     }
 
