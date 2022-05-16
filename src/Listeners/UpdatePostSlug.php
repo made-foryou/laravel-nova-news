@@ -2,10 +2,13 @@
 
 namespace MennoTempelaar\NovaNewsTool\Listeners;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use MennoTempelaar\NovaNewsTool\Events\SavingPost;
 use MennoTempelaar\NovaNewsTool\Models\Post;
 
+use function preg_match;
 use function ray;
 
 
@@ -66,18 +69,54 @@ class UpdatePostSlug
 
     protected function countNumberOfTimesUsed (string $slug, ?int $id): int
     {
-
         if ($id) {
 
-            return Post::where('id', '!=', $id)
-                ->whereRaw(self::COLUMN_SLUG . " RLIKE '^{$slug}(-[0-9]+)?$'")
-                ->count();
+            if ($this->getDatabaseDriver() === 'mysql') {
+
+                return Post::where('id', '!=', $id)
+                    ->whereRaw(self::COLUMN_SLUG . " RLIKE '^{$slug}(-[0-9]+)?$'")
+                    ->count();
+
+            } else {
+
+                $posts = Post::where('id', '!=', $id)->get();
+
+                return $posts->filter(
+                    fn ($post) => preg_match(
+                        "^{$slug}(-\d+)?$^",
+                        $post->slug,
+                    ) === 1,
+                )->count();
+
+            }
 
         }
 
-        return Post::whereRaw(
-            self::COLUMN_SLUG . " RLIKE '^{$slug}(-[0-9]+)?$'",
-        )->count();
+        if ($this->getDatabaseDriver() === 'mysql') {
+
+            return Post::whereRaw(
+                self::COLUMN_SLUG . " RLIKE '^{$slug}(-[0-9]+)?$'",
+            )->count();
+
+        } else {
+
+            return Post::all()
+                ->filter(
+                    fn ($post) => preg_match(
+                          "^{$slug}(-\d+)?$^",
+                          $post->slug,
+                      ) === 1,
+                )->count();
+
+        }
+
+    }
+
+    protected function getDatabaseDriver(): string {
+
+        $default = config('database.default');
+
+        return config("database.connections.{$default}.driver");
 
     }
 

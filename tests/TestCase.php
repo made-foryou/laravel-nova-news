@@ -2,7 +2,9 @@
 
 namespace MennoTempelaar\NovaNewsTool\Tests;
 
-use MennoTempelaar\NovaNewsTool\NewsServiceProvider;
+use MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider;
+use MennoTempelaar\NovaNewsTool\Providers\NewsEventsServiceProvider;
+use MennoTempelaar\NovaNewsTool\Providers\NewsNovaServiceProvider;
 
 
 class TestCase extends \Orchestra\Testbench\TestCase
@@ -22,6 +24,8 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
         return [
             NewsServiceProvider::class,
+            NewsEventsServiceProvider::class,
+            NewsNovaServiceProvider::class,
         ];
 
     }
