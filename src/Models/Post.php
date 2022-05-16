@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use MennoTempelaar\NovaNewsTool\Database\Factories\PostFactory;
+use MennoTempelaar\NovaNewsTool\Events\SavingPost;
 use MennoTempelaar\NovaNewsTool\Utils\Prefixer;
 
 
+/**
+ * @property-read int $id
+ * @property string $title
+ * @property string $slug
+ */
 class Post extends Model
 {
 
@@ -25,9 +31,16 @@ class Post extends Model
         'published_till',
         'updated_at',
         'created_at',
-        'deleted_at'
+        'deleted_at',
     ];
 
+    /**
+     * @var array<string, string>
+     * @inheritdoc
+     */
+    protected $dispatchesEvents = [
+        'saving' => SavingPost::class,
+    ];
 
     /**
      * @inheritdoc

@@ -3,7 +3,9 @@
 namespace MennoTempelaar\NovaNewsTool\Nova;
 
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Panel;
 use Marshmallow\CharcountedFields\TextCounted;
@@ -46,9 +48,9 @@ class Post extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @returns array<int, Field|Panel>
      *
-     * @return array
+     * @inheritdoc
      */
     public function fields ( NovaRequest $request ): array
     {
@@ -65,6 +67,13 @@ class Post extends Resource
                     ->warningAt(70)
                     ->help(__('nova-news-tool::post_data.field.title_help')),
 
+                Slug::make(
+                    __('nova-news-tool::post_data.field.slug'),
+                    'slug',
+                )
+                    ->showOnUpdating()
+                    ->hideWhenCreating(),
+
                 Image::make(
                     __('nova-news-tool::post_data.field.image'),
                     'image',
@@ -74,7 +83,7 @@ class Post extends Resource
                     __('nova-news-tool::post_data.field.contents'),
                     'contents',
                 ),
-            ]),
+            ])->withToolbar(),
 
             Panel::make(__('nova-news-tool::system_data.title'), [
                 ID::make()->sortable(),
@@ -96,7 +105,7 @@ class Post extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  NovaRequest  $request
      *
      * @return array
      */
@@ -109,7 +118,7 @@ class Post extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  NovaRequest  $request
      *
      * @return array
      */
@@ -122,7 +131,7 @@ class Post extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  NovaRequest  $request
      *
      * @return array
      */
@@ -135,7 +144,7 @@ class Post extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  NovaRequest  $request
      *
      * @return array
      */

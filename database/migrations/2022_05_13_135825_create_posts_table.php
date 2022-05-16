@@ -21,7 +21,11 @@ return new class extends Migration
 
                 $table->id();
 
-                $table->string('title', 120); // Field with tooltip for max 70 characters
+                $table->string('title', 120);
+
+
+                $table->string('slug')
+                    ->nullable();
 
                 $table->string('image')
                     ->nullable();

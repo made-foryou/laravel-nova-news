@@ -12,12 +12,12 @@ return [
              mind that Google can only show 70 characters, and the absolute max is around 120
              characters.',
 
+        'slug' => 'URL Slug',
+
         'image' => 'Image',
         'image_help' => 'The poster image for this news post.',
 
         'contents' => 'Contents'
     ]
-
-
 
 ];
