@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use MennoTempelaar\NovaNewsTool\Utils\Prefixer;
+use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 
 
 return new class extends Migration
@@ -16,13 +16,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create(
-            Prefixer::withPrefix('posts'),
+            Prefix::withPrefix('posts'),
             function (Blueprint $table) {
 
                 $table->id();
 
                 $table->string('title', 120);
-
 
                 $table->string('slug')
                     ->nullable();
@@ -56,7 +55,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(Prefixer::withPrefix('posts'));
+        Schema::dropIfExists(Prefix::withPrefix('posts'));
     }
 
 };

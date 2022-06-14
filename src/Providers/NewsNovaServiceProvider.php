@@ -4,7 +4,7 @@ namespace MennoTempelaar\NovaNewsTool\Providers;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
-use MennoTempelaar\NovaNewsTool\Nova\Post;
+use MennoTempelaar\NovaNewsTool\Nova\PostResource;
 
 
 class NewsNovaServiceProvider extends NovaApplicationServiceProvider
@@ -19,7 +19,7 @@ class NewsNovaServiceProvider extends NovaApplicationServiceProvider
     {
 
         Nova::resources([
-            Post::class,
+            PostResource::class,
         ]);
 
     }

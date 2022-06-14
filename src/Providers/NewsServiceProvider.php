@@ -41,6 +41,16 @@ class NewsServiceProvider extends ServiceProvider
                 'config'
             );
 
+            // Exports the translation files from this package to the project
+            $this->publishes(
+                [
+                    __DIR__ . '/../../lang/en/' => config_path(
+                        ''
+                    )
+                ],
+                'translations'
+            );
+
         }
 
     }
