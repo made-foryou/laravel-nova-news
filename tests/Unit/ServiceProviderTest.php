@@ -1,7 +1,6 @@
 <?php
 
 use MennoTempelaar\NovaNewsTool\Providers\NewsEventsServiceProvider;
-use MennoTempelaar\NovaNewsTool\Providers\NewsNovaServiceProvider;
 use MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider;
 use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 
@@ -17,10 +16,4 @@ test('It creates the events service provider', function (  ) {
     $provider = new NewsEventsServiceProvider($this->app);
 
     expect($provider)->toBeInstanceOf(NewsEventsServiceProvider::class);
-});
-
-test('It creates the nova service provider', function (  ) {
-    $provider = new NewsNovaServiceProvider($this->app);
-
-    expect($provider)->toBeInstanceOf(NewsNovaServiceProvider::class);
 });
