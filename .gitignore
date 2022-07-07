@@ -4,4 +4,8 @@
 # NPM & Yarn
 node_modules/
 
+# Composer
 /vendor/
+
+# Caches
+.phpunit.result.cache

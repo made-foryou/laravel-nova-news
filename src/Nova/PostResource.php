@@ -116,14 +116,30 @@ class PostResource extends Resource
                 Trix::make(
                     Prefix::translate( 'resource.fields.contents' ),
                     'contents',
-                ),
+                )->stacked(),
+
             ] )->withToolbar(),
 
             Panel::make( Prefix::translate( 'resource.fields.visibility-panel' ), [
                 Boolean::make(
                     Prefix::translate( 'resource.fields.hidden' ),
                     'hidden',
-                )->help(Prefix::translate('resource.fields.hidden-help')),
+                )->help( Prefix::translate( 'resource.fields.hidden-help' ) ),
+
+                DateTime::make(
+                    Prefix::translate( 'resource.fields.published-at' ),
+                    'published_at',
+                )
+                    ->nullable( true )
+                    ->help( Prefix::translate( 'resource.fields.published-at-help' ) ),
+
+                DateTime::make(
+                    Prefix::translate( 'resource.fields.published-till' ),
+                    'published_till',
+                )
+                    ->nullable( true )
+                    ->help( Prefix::translate( 'resource.fields.published-till-help' ) ),
+
             ] )->help( Prefix::translate( 'resource.fields.visibility-panel-help' ) ),
 
             Panel::make( Prefix::translate( 'resource.fields.technical-panel' ), [

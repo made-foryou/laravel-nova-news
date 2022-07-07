@@ -7,8 +7,6 @@ use MennoTempelaar\NovaNewsTool\Events\SavingPost;
 use MennoTempelaar\NovaNewsTool\Models\Post;
 use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 
-use function Pest\Faker\faker;
-
 
 uses(TestCase::class);
 uses(RefreshDatabase::class);

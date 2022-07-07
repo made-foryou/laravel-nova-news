@@ -28,6 +28,12 @@ return [
         'hidden'      => 'Hide the post?',
         'hidden-help' => 'The message will not be displayed on the website when this field is checked.',
 
+        'published-at' => 'Publish post on',
+        'published-at-help' => '',
+
+        'published-till' => 'Publish post on',
+        'published-till-help' => '',
+
         'technical-panel' => 'Technical information',
 
         'updated' => 'Last updated at',
