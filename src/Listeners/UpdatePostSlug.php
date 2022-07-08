@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use MennoTempelaar\NovaNewsTool\Events\SavingPost;
-use MennoTempelaar\NovaNewsTool\Models\Post;
+use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
 use function preg_match;
 use function ray;
@@ -19,104 +19,114 @@ class UpdatePostSlug
 
     const COLUMN_TITLE = 'title';
 
-    public function handle (SavingPost $event): void
+    public function handle ( SavingPost $event ): void
     {
 
         $slug = null;
 
-        if (!$this->changedSlugManually($event->post) && !$this->changedTitle($event->post)) {
+        if ( $event->post->title === null ) {
 
             return;
 
         }
 
-        if ($this->changedSlugManually($event->post)) {
+        if ( !$this->changedSlugManually( $event->post )
+             && !$this->changedTitle( $event->post )
+        ) {
 
-            $slug = Str::slug($event->post->slug);
-
-        } else {
-
-            $slug = $this->generateSlugFromTitle($event->post->title);
+            return;
 
         }
 
-        $count = $this->countNumberOfTimesUsed($slug, $event->post->id);
+        if ( $this->changedSlugManually( $event->post ) ) {
+
+            $slug = Str::slug( $event->post->slug );
+
+        } else {
+
+            $slug = $this->generateSlugFromTitle( $event->post->title );
+
+        }
+
+        $count = $this->countNumberOfTimesUsed( $slug, $event->post->id );
 
         $event->post->slug = $count ? "{$slug}-{$count}" : $slug;
 
     }
 
-    protected function changedSlugManually (Post $post): bool
+    protected function changedSlugManually ( PostModel $post ): bool
     {
 
-        return $post->isDirty(self::COLUMN_SLUG);
+        return $post->isDirty( self::COLUMN_SLUG );
 
     }
 
-    protected function changedTitle (Post $post): bool
+    protected function changedTitle ( PostModel $post ): bool
     {
 
-        return $post->isDirty(self::COLUMN_TITLE);
+        return $post->isDirty( self::COLUMN_TITLE );
 
     }
 
-    protected function generateSlugFromTitle (string $title): string
+    protected function generateSlugFromTitle ( string $title ): string
     {
 
-        return Str::slug($title);
+        return Str::slug( $title );
 
     }
 
-    protected function countNumberOfTimesUsed (string $slug, ?int $id): int
+    protected function countNumberOfTimesUsed ( string $slug, ?int $id ): int
     {
-        if ($id) {
 
-            if ($this->getDatabaseDriver() === 'mysql') {
+        if ( $id ) {
 
-                return Post::where('id', '!=', $id)
-                    ->whereRaw(self::COLUMN_SLUG . " RLIKE '^{$slug}(-[0-9]+)?$'")
+            if ( $this->getDatabaseDriver() === 'mysql' ) {
+
+                return PostModel::where( 'id', '!=', $id )
+                    ->whereRaw( self::COLUMN_SLUG . " RLIKE '^{$slug}(-[0-9]+)?$'" )
                     ->count();
 
             } else {
 
-                $posts = Post::where('id', '!=', $id)->get();
+                $posts = PostModel::where( 'id', '!=', $id )->get();
 
                 return $posts->filter(
-                    fn ($post) => preg_match(
-                        "^{$slug}(-\d+)?$^",
-                        $post->slug,
-                    ) === 1,
+                    fn ( $post ) => preg_match(
+                                        "^{$slug}(-\d+)?$^",
+                                        $post->slug,
+                                    ) === 1,
                 )->count();
 
             }
 
         }
 
-        if ($this->getDatabaseDriver() === 'mysql') {
+        if ( $this->getDatabaseDriver() === 'mysql' ) {
 
-            return Post::whereRaw(
+            return PostModel::whereRaw(
                 self::COLUMN_SLUG . " RLIKE '^{$slug}(-[0-9]+)?$'",
             )->count();
 
         } else {
 
-            return Post::all()
+            return PostModel::all()
                 ->filter(
-                    fn ($post) => preg_match(
-                          "^{$slug}(-\d+)?$^",
-                          $post->slug,
-                      ) === 1,
+                    fn ( $post ) => preg_match(
+                                        "^{$slug}(-\d+)?$^",
+                                        $post->slug,
+                                    ) === 1,
                 )->count();
 
         }
 
     }
 
-    protected function getDatabaseDriver(): string {
+    protected function getDatabaseDriver (): string
+    {
 
-        $default = config('database.default');
+        $default = config( 'database.default' );
 
-        return config("database.connections.{$default}.driver");
+        return config( "database.connections.{$default}.driver" );
 
     }
 

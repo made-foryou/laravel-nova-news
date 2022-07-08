@@ -3,7 +3,7 @@
 return [
 
     'label'         => 'Posts',
-    'singularLabel' => 'Post',
+    'singularLabel' => 'PostModel',
 
     'fields' => [
         'general-panel' => 'General post information',
@@ -31,7 +31,7 @@ return [
         'published-at' => 'Publish post on',
         'published-at-help' => '',
 
-        'published-till' => 'Publish post on',
+        'published-till' => 'Publish post till',
         'published-till-help' => '',
 
         'technical-panel' => 'Technical information',
@@ -40,7 +40,7 @@ return [
         'created' => 'Created at',
         'deleted' => 'Deleted at',
 
-        'index-stack' => 'Post',
+        'index-stack' => 'PostModel',
 
     ],
 

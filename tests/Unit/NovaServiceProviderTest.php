@@ -1,12 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Nova\Nova;
 use MennoTempelaar\NovaNewsTool\Nova\PostResource;
 use MennoTempelaar\NovaNewsTool\Providers\NewsNovaServiceProvider;
-use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 
-
-uses( TestCase::class );
+uses( RefreshDatabase::class );
 
 test( 'It creates the nova service provider', function () {
 
@@ -18,6 +17,6 @@ test( 'It creates the nova service provider', function () {
 
 test( 'It registers the resource', function () {
 
-    expect( in_array(PostResource::class, Nova::$resources) )->toBeTrue();
+    expect( in_array( PostResource::class, Nova::$resources ) )->toBeTrue();
 
-});
+} );

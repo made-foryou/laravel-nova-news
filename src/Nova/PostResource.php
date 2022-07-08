@@ -12,7 +12,7 @@ use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Panel;
 use Marshmallow\CharcountedFields\TextCounted;
-use MennoTempelaar\NovaNewsTool\Models\Post;
+use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -29,7 +29,7 @@ class PostResource extends Resource
      *
      * @var string
      */
-    public static string $model = Post::class;
+    public static string $model = PostModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -94,6 +94,7 @@ class PostResource extends Resource
                     Prefix::translate( 'resource.fields.title' ),
                     'title'
                 )
+                    ->rules( 'required' )
                     ->minChars( 10 )
                     ->maxChars( 120 )
                     ->warningAt( 70 )
@@ -130,14 +131,14 @@ class PostResource extends Resource
                     Prefix::translate( 'resource.fields.published-at' ),
                     'published_at',
                 )
-                    ->nullable( true )
+                    ->nullable()
                     ->help( Prefix::translate( 'resource.fields.published-at-help' ) ),
 
                 DateTime::make(
                     Prefix::translate( 'resource.fields.published-till' ),
                     'published_till',
                 )
-                    ->nullable( true )
+                    ->nullable()
                     ->help( Prefix::translate( 'resource.fields.published-till-help' ) ),
 
             ] )->help( Prefix::translate( 'resource.fields.visibility-panel-help' ) ),

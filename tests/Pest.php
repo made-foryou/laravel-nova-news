@@ -13,7 +13,7 @@ use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 |
 */
 
-uses(TestCase::class);
+uses(TestCase::class)->in(__DIR__);
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +26,7 @@ uses(TestCase::class);
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +39,4 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
-{
-    // ..
-}
+
