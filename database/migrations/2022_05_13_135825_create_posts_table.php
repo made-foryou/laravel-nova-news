@@ -31,7 +31,7 @@ return new class extends Migration
                     ->nullable();
 
                 $table->text('contents')
-                    ->nullable();
+                    ->default('{}');
 
                 $table->boolean('hidden')
                     ->default(false);
