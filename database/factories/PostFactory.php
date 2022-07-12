@@ -3,7 +3,6 @@
 namespace MennoTempelaar\NovaNewsTool\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Foundation\Auth\User;
 use JetBrains\PhpStorm\ArrayShape;
 use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
@@ -24,13 +23,12 @@ class PostFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    #[ArrayShape( [
-        'title'          => "string",
-        'image'          => "string",
-        'contents'       => "string",
-        'hidden'         => "boolean",
-        'published_at'   => "\DateTime",
-        'published_till' => "\DateTime",
+    #[ArrayShape( [ 'title'          => "string",
+                    'image'          => "string",
+                    'contents'       => "string",
+                    'hidden'         => "bool",
+                    'published_at'   => "\DateTime",
+                    'published_till' => "\DateTime",
     ] )] public function definition (): array
     {
 
@@ -42,6 +40,7 @@ class PostFactory extends Factory
             'published_at'   => $this->faker->dateTime,
             'published_till' => $this->faker->dateTime,
         ];
+
     }
 
 }
