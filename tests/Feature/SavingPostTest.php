@@ -3,44 +3,54 @@
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
-use MennoTempelaar\NovaNewsTool\Events\SavingPost;
-use MennoTempelaar\NovaNewsTool\Models\Post;
-use MennoTempelaar\NovaNewsTool\Tests\TestCase;
+use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
+use MennoTempelaar\NovaNewsTool\Models\PostModel;
+use Orchestra\Testbench\Factories\UserFactory;
 
 
-uses(TestCase::class);
-uses(RefreshDatabase::class);
+uses( RefreshDatabase::class );
 
-test('fires an event when saving an post', function () {
+beforeEach(function () {
 
-    Event::fake([
-        SavingPost::class,
-    ]);
+    $user = (new UserFactory())->create();
 
-    $post = Post::factory()->create();
-
-    Event::assertDispatched(
-        SavingPost::class,
-        function ($event) use ($post) {
-            return $event->post->title === $post->title;
-        },
-    );
+    actingAs($user);
 
 });
 
-test('generates a slug from', function (string $title) {
+test( 'fires an event when saving a post', function () {
 
-    $post = Post::factory()->create(['title' => $title]);
+    Event::fake( [
+        SavingPostEvent::class,
+    ] );
 
-    expect($post->slug)->toBe(Str::slug($title));
+    /** @var PostModel $post */
+    $post = PostModel::factory()->create();
 
-    $post = Post::factory()->create(['title' => $title]);
+    Event::assertDispatched(
+        SavingPostEvent::class,
+        function ( $event ) use ( $post ) {
 
-    expect($post->slug)->toBe(Str::slug($title) . '-1');
+            return $event->post->title === $post->title;
 
-    $post = Post::factory()->create(['title' => $title]);
+        },
+    );
 
-    expect($post->slug)->toBe(Str::slug($title) . '-2');
+} );
 
-})
-    ->with('post_titles');
+test( 'generates a slug from', function ( string $title ) {
+
+    $post = PostModel::factory()->create( [ 'title' => $title ] );
+
+    expect( $post->slug )->toBe( Str::slug( $title ) );
+
+    $post = PostModel::factory()->create( [ 'title' => $title ] );
+
+    expect( $post->slug )->toBe( Str::slug( $title ) . '-1' );
+
+    $post = PostModel::factory()->create( [ 'title' => $title ] );
+
+    expect( $post->slug )->toBe( Str::slug( $title ) . '-2' );
+
+} )
+    ->with( 'post_titles' );

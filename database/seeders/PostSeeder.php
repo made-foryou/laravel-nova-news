@@ -3,7 +3,7 @@
 namespace MennoTempelaar\NovaNewsTool\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use MennoTempelaar\NovaNewsTool\Models\Post;
+use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
 
 class PostSeeder extends Seeder
@@ -15,6 +15,6 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        Post::factory(10)->create();
+        PostModel::factory(10)->create();
     }
 }

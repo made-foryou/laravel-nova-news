@@ -9,17 +9,14 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use MennoTempelaar\NovaNewsTool\Models\Post;
+use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
 
-class SavingPost
+class SavingPostEvent
 {
     use Dispatchable, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     */
     public function __construct(
-        public Post $post,
+        public PostModel $post,
     ) { }
 }

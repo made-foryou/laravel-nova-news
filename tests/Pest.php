@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 
 /*
@@ -13,7 +14,7 @@ use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 |
 */
 
-uses(TestCase::class);
+uses(TestCase::class)->in(__DIR__);
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,7 @@ uses(TestCase::class);
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +40,15 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+/**
+ * Set the currently logged-in user for the application.
+ *
+ * @param  Authenticatable  $user
+ * @param  string|null      $driver
+ *
+ * @return TestCase
+ */
+function actingAs(Authenticatable $user, string $driver = null): TestCase
 {
-    // ..
+    return test()->actingAs($user, $driver);
 }

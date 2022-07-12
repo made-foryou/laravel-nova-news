@@ -2,6 +2,7 @@
 
 namespace MennoTempelaar\NovaNewsTool\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Field;
@@ -12,13 +13,11 @@ use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Panel;
 use Marshmallow\CharcountedFields\TextCounted;
-use MennoTempelaar\NovaNewsTool\Models\Post;
+use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
-
-use function __;
 
 
 class PostResource extends Resource
@@ -29,7 +28,7 @@ class PostResource extends Resource
      *
      * @var string
      */
-    public static string $model = Post::class;
+    public static string $model = PostModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -94,6 +93,7 @@ class PostResource extends Resource
                     Prefix::translate( 'resource.fields.title' ),
                     'title'
                 )
+                    ->rules( 'required' )
                     ->minChars( 10 )
                     ->maxChars( 120 )
                     ->warningAt( 70 )
@@ -130,35 +130,58 @@ class PostResource extends Resource
                     Prefix::translate( 'resource.fields.published-at' ),
                     'published_at',
                 )
-                    ->nullable( true )
+                    ->nullable()
                     ->help( Prefix::translate( 'resource.fields.published-at-help' ) ),
 
                 DateTime::make(
                     Prefix::translate( 'resource.fields.published-till' ),
                     'published_till',
                 )
-                    ->nullable( true )
+                    ->nullable()
                     ->help( Prefix::translate( 'resource.fields.published-till-help' ) ),
 
             ] )->help( Prefix::translate( 'resource.fields.visibility-panel-help' ) ),
 
             Panel::make( Prefix::translate( 'resource.fields.technical-panel' ), [
-                ID::make()->hideFromIndex(),
+                ID::make()->onlyOnDetail(),
 
                 DateTime::make(
                     Prefix::translate( 'resource.fields.updated' ),
-                    'updated_at'
-                )->readonly()->hideFromIndex(),
+                    'updated_at',
+                )
+                    ->readonly()
+                    ->onlyOnDetail(),
 
-                DateTime::make(
-                    Prefix::translate( 'resource.fields.created' ),
-                    'created_at'
-                )->readonly()->hideFromIndex(),
+                Stack::make( Prefix::translate( 'resource.fields.created-by' ), [
+
+                    BelongsTo::make(
+                        Prefix::translate( 'resource.fields.created-by' ),
+                        'createdBy',
+                        self::class,
+                    )
+                        ->readonly()
+                        ->onlyOnDetail()
+                        ->displayUsing( function ( $value ) {
+
+                            return $value->name;
+                        } ),
+
+                    DateTime::make(
+                        Prefix::translate( 'resource.fields.created' ),
+                        'created_at',
+                    )
+                        ->readonly()
+                        ->onlyOnDetail(),
+
+                ] )->onlyOnDetail()->readonly(),
+
 
                 DateTime::make(
                     Prefix::translate( 'resource.fields.deleted' ),
-                    'deleted_at'
-                )->readonly()->hideFromIndex(),
+                    'deleted_at',
+                )
+                    ->readonly()
+                    ->onlyOnDetail(),
             ] ),
 
         ];
@@ -189,6 +212,26 @@ class PostResource extends Resource
                     ->resolveUsing( fn () => strip_tags( optional( $this->resource )->contents ) )
                     ->extraClasses( 'inline-block truncate max-w-sm' )
                     ->asSmall(),
+            ] ),
+
+            Stack::make( Prefix::translate( 'resource.fields.created-by' ), [
+
+                BelongsTo::make(
+                    Prefix::translate( 'resource.fields.created-by' ),
+                    'createdBy',
+                    self::class,
+                )
+                    ->displayUsing( function ( $value ) {
+
+                        return $value->name;
+
+                    } ),
+
+                DateTime::make(
+                    Prefix::translate( 'resource.fields.created' ),
+                    'created_at',
+                ),
+
             ] ),
 
         ];

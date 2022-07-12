@@ -3,8 +3,10 @@
 namespace MennoTempelaar\NovaNewsTool\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
-use MennoTempelaar\NovaNewsTool\Events\SavingPost;
-use MennoTempelaar\NovaNewsTool\Listeners\UpdatePostSlug;
+use MennoTempelaar\NovaNewsTool\Events\CreatingPostEvent;
+use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
+use MennoTempelaar\NovaNewsTool\Listeners\SaveCreatedByListener;
+use MennoTempelaar\NovaNewsTool\Listeners\UpdatePostSlugListener;
 
 
 class NewsEventsServiceProvider extends EventServiceProvider
@@ -15,8 +17,12 @@ class NewsEventsServiceProvider extends EventServiceProvider
      * @var array<string, array<string>>
      */
     protected $listen = [
-        SavingPost::class => [
-            UpdatePostSlug::class,
+        SavingPostEvent::class => [
+            UpdatePostSlugListener::class,
+        ],
+
+        CreatingPostEvent::class => [
+            SaveCreatedByListener::class,
         ]
     ];
 }

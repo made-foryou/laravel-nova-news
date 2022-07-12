@@ -5,17 +5,17 @@ namespace MennoTempelaar\NovaNewsTool\Tests;
 use MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider;
 use MennoTempelaar\NovaNewsTool\Providers\NewsEventsServiceProvider;
 use MennoTempelaar\NovaNewsTool\Providers\NewsNovaServiceProvider;
+use \Orchestra\Testbench\TestCase as Orchestra;
 
 
-class TestCase extends \Orchestra\Testbench\TestCase
+class TestCase extends Orchestra
 {
-
     protected function setUp (): void
     {
 
         parent::setUp();
 
-        // Additional setup
+        $this->loadLaravelMigrations();
 
     }
 
@@ -27,13 +27,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
             NewsEventsServiceProvider::class,
             NewsNovaServiceProvider::class,
         ];
-
-    }
-
-    protected function getEnvironmentSetUp ( $app )
-    {
-
-        // perform environment setup
 
     }
 

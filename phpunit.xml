@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE phpunit [
+        <!ELEMENT phpunit (coverage|testsuites|php)*>
+        <!ATTLIST phpunit
+                xmlns:xsi CDATA #REQUIRED
+                bootstrap CDATA #REQUIRED
+                backupGlobals CDATA #REQUIRED
+                backupStaticAttributes CDATA #REQUIRED
+                colors CDATA #REQUIRED
+                verbose CDATA #REQUIRED
+                convertErrorsToExceptions CDATA #REQUIRED
+                convertNoticesToExceptions CDATA #REQUIRED
+                convertWarningsToExceptions CDATA #REQUIRED
+                processIsolation CDATA #REQUIRED
+                stopOnFailure CDATA #REQUIRED
+                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+        <!ELEMENT coverage (include)*>
+        <!ELEMENT include (directory)*>
+        <!ELEMENT directory (#PCDATA)>
+        <!ATTLIST directory
+                suffix CDATA #REQUIRED>
+        <!ELEMENT testsuites (testsuite)*>
+        <!ELEMENT testsuite (directory)*>
+        <!ATTLIST testsuite
+                name CDATA #REQUIRED>
+        <!ELEMENT php (env)*>
+        <!ELEMENT env (#PCDATA)>
+        <!ATTLIST env
+                name CDATA #REQUIRED
+                value CDATA #REQUIRED>
+        ]>
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         bootstrap="vendor/autoload.php"

@@ -1,19 +1,22 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use MennoTempelaar\NovaNewsTool\Providers\NewsEventsServiceProvider;
 use MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider;
-use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 
-uses(TestCase::class);
 
-test('It creates the default service provider', function (  ) {
-    $provider = new NewsServiceProvider($this->app);
+uses( RefreshDatabase::class );
 
-    expect($provider)->toBeInstanceOf(NewsServiceProvider::class);
-});
+test( 'It creates the default service provider', function () {
 
-test('It creates the events service provider', function (  ) {
-    $provider = new NewsEventsServiceProvider($this->app);
+    $provider = new NewsServiceProvider( $this->app );
 
-    expect($provider)->toBeInstanceOf(NewsEventsServiceProvider::class);
-});
+    expect( $provider )->toBeInstanceOf( NewsServiceProvider::class );
+} );
+
+test( 'It creates the events service provider', function () {
+
+    $provider = new NewsEventsServiceProvider( $this->app );
+
+    expect( $provider )->toBeInstanceOf( NewsEventsServiceProvider::class );
+} );
