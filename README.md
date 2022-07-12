@@ -9,6 +9,11 @@ At first, we need to install the package onto our Laravel application:
 composer require mennotempelaar/nova-news-resource-tool
 ```
 
+To publish the configuration files from this package:
+```shell
+php artisan vendor:publish --provider="MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider"
+```
+
 Now we need to publish the files from the [advoor/nova-editor-js](https://github.com/advoor/nova-editor-js) package.
 
 ```shell
