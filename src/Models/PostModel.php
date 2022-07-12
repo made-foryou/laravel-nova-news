@@ -27,7 +27,9 @@ use MennoTempelaar\NovaNewsTool\Utils\Prefix;
  * @property Carbon   $updated_at
  * @property Carbon   $created_at
  * @property Carbon   $deleted_at
- * @property User     $created_by
+ * @property int      $created_by
+ *
+ * @property User     $createdBy
  */
 class PostModel extends Model
 {

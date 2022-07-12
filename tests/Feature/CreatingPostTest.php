@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use Orchestra\Testbench\Factories\UserFactory;
@@ -8,14 +7,15 @@ use Orchestra\Testbench\Factories\UserFactory;
 
 uses( RefreshDatabase::class );
 
-beforeEach( function () {
+it( 'associates the active user to the post', function () {
 
     $user = ( new UserFactory() )->create();
 
     actingAs( $user );
 
-} );
+    /** @var PostModel $post */
+    $post = PostModel::factory()->create();
 
-it( 'associates the active user to the post' )
-    ->expect( fn () => PostModel::factory()->create() )
-    ->createdBy->toBeInstanceOf( User::class );
+    expect($post->createdBy->id)->toBe($user->id);
+
+} );
