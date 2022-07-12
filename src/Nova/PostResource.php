@@ -152,7 +152,7 @@ class PostResource extends Resource
                     ->readonly()
                     ->onlyOnDetail(),
 
-                Stack::make(Prefix::translate( 'resource.fields.created-by' ), [
+                Stack::make( Prefix::translate( 'resource.fields.created-by' ), [
 
                     BelongsTo::make(
                         Prefix::translate( 'resource.fields.created-by' ),
@@ -161,9 +161,10 @@ class PostResource extends Resource
                     )
                         ->readonly()
                         ->onlyOnDetail()
-                        ->displayUsing(function ($value) {
+                        ->displayUsing( function ( $value ) {
+
                             return $value->name;
-                        }),
+                        } ),
 
                     DateTime::make(
                         Prefix::translate( 'resource.fields.created' ),
@@ -172,7 +173,7 @@ class PostResource extends Resource
                         ->readonly()
                         ->onlyOnDetail(),
 
-                ])->onlyOnDetail()->readonly(),
+                ] )->onlyOnDetail()->readonly(),
 
 
                 DateTime::make(
@@ -211,6 +212,26 @@ class PostResource extends Resource
                     ->resolveUsing( fn () => strip_tags( optional( $this->resource )->contents ) )
                     ->extraClasses( 'inline-block truncate max-w-sm' )
                     ->asSmall(),
+            ] ),
+
+            Stack::make( Prefix::translate( 'resource.fields.created-by' ), [
+
+                BelongsTo::make(
+                    Prefix::translate( 'resource.fields.created-by' ),
+                    'createdBy',
+                    self::class,
+                )
+                    ->displayUsing( function ( $value ) {
+
+                        return $value->name;
+
+                    } ),
+
+                DateTime::make(
+                    Prefix::translate( 'resource.fields.created' ),
+                    'created_at',
+                ),
+
             ] ),
 
         ];
