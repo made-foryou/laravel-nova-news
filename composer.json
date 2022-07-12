@@ -27,7 +27,8 @@
     "require": {
         "php": "^8.1",
         "laravel/nova": "^4.0",
-        "marshmallow/nova-charcounted-fields": "^2.0"
+        "marshmallow/nova-charcounted-fields": "^2.0",
+        "advoor/nova-editor-js": "^3.0"
     },
     "require-dev": {
         "orchestra/testbench": "^7.0",
@@ -61,5 +62,10 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php artisan vendor:publish --provider=\"Advoor\\NovaEditorJs\\FieldServiceProvider\""
+        ]
     }
 }
