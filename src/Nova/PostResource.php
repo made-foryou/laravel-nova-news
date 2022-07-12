@@ -2,6 +2,7 @@
 
 namespace MennoTempelaar\NovaNewsTool\Nova;
 
+use Advoor\NovaEditorJs\NovaEditorJsField;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
@@ -10,7 +11,6 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Line;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Stack;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Panel;
 use Marshmallow\CharcountedFields\TextCounted;
 use MennoTempelaar\NovaNewsTool\Models\PostModel;
@@ -113,10 +113,10 @@ class PostResource extends Resource
                     'image',
                 )->help( Prefix::translate( 'resource.fields.poster-help' ) ),
 
-                Trix::make(
+                NovaEditorJsField::make(
                     Prefix::translate( 'resource.fields.contents' ),
                     'contents',
-                )->stacked(),
+                ),
 
             ] )->withToolbar(),
 
@@ -174,7 +174,6 @@ class PostResource extends Resource
                         ->onlyOnDetail(),
 
                 ] )->onlyOnDetail()->readonly(),
-
 
                 DateTime::make(
                     Prefix::translate( 'resource.fields.deleted' ),
