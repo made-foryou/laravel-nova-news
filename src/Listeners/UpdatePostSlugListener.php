@@ -5,21 +5,21 @@ namespace MennoTempelaar\NovaNewsTool\Listeners;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use MennoTempelaar\NovaNewsTool\Events\SavingPost;
+use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
 use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
 use function preg_match;
 use function ray;
 
 
-class UpdatePostSlug
+class UpdatePostSlugListener
 {
 
     const COLUMN_SLUG  = 'slug';
 
     const COLUMN_TITLE = 'title';
 
-    public function handle ( SavingPost $event ): void
+    public function handle ( SavingPostEvent $event ): void
     {
 
         $slug = null;

@@ -38,6 +38,7 @@ return [
 
         'updated' => 'Last updated at',
         'created' => 'Created at',
+        'created-by' => 'Created by',
         'deleted' => 'Deleted at',
 
         'index-stack' => 'PostModel',

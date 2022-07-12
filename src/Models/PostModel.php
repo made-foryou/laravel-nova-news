@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Carbon;
 use MennoTempelaar\NovaNewsTool\Database\Factories\PostFactory;
-use MennoTempelaar\NovaNewsTool\Events\SavingPost;
+use MennoTempelaar\NovaNewsTool\Events\CreatingPostEvent;
+use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
 use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 
 
@@ -50,7 +51,8 @@ class PostModel extends Model
      * @inheritdoc
      */
     protected $dispatchesEvents = [
-        'saving' => SavingPost::class,
+        'saving' => SavingPostEvent::class,
+        'creating' => CreatingPostEvent::class,
     ];
 
     /**

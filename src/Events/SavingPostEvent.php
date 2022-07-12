@@ -12,13 +12,10 @@ use Illuminate\Queue\SerializesModels;
 use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
 
-class SavingPost
+class SavingPostEvent
 {
     use Dispatchable, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     */
     public function __construct(
         public PostModel $post,
     ) { }

@@ -2,6 +2,7 @@
 
 namespace MennoTempelaar\NovaNewsTool\Nova;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Field;
@@ -17,8 +18,6 @@ use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
-
-use function __;
 
 
 class PostResource extends Resource
@@ -144,22 +143,44 @@ class PostResource extends Resource
             ] )->help( Prefix::translate( 'resource.fields.visibility-panel-help' ) ),
 
             Panel::make( Prefix::translate( 'resource.fields.technical-panel' ), [
-                ID::make()->hideFromIndex(),
+                ID::make()->onlyOnDetail(),
 
                 DateTime::make(
                     Prefix::translate( 'resource.fields.updated' ),
-                    'updated_at'
-                )->readonly()->hideFromIndex(),
+                    'updated_at',
+                )
+                    ->readonly()
+                    ->onlyOnDetail(),
 
-                DateTime::make(
-                    Prefix::translate( 'resource.fields.created' ),
-                    'created_at'
-                )->readonly()->hideFromIndex(),
+                Stack::make(Prefix::translate( 'resource.fields.created-by' ), [
+
+                    BelongsTo::make(
+                        Prefix::translate( 'resource.fields.created-by' ),
+                        'createdBy',
+                        self::class,
+                    )
+                        ->readonly()
+                        ->onlyOnDetail()
+                        ->displayUsing(function ($value) {
+                            return $value->name;
+                        }),
+
+                    DateTime::make(
+                        Prefix::translate( 'resource.fields.created' ),
+                        'created_at',
+                    )
+                        ->readonly()
+                        ->onlyOnDetail(),
+
+                ])->onlyOnDetail()->readonly(),
+
 
                 DateTime::make(
                     Prefix::translate( 'resource.fields.deleted' ),
-                    'deleted_at'
-                )->readonly()->hideFromIndex(),
+                    'deleted_at',
+                )
+                    ->readonly()
+                    ->onlyOnDetail(),
             ] ),
 
         ];
