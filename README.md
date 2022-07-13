@@ -28,4 +28,12 @@ php artisan migrate
 
 Now, you can use the package to the fullest.
 
+### Testing
+
+The package uses `PestPHP` for testing.
+
+```shell
+./vendor/bin/pest
+```
+
 
