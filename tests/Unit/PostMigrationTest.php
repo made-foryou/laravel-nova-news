@@ -23,11 +23,11 @@ it( 'has a title' )
 
 it( 'has contents' )
     ->expect( fn () => PostModel::factory()->create() )
-    ->contents->toBeString();
+    ->contents->toBeNull();
 
 it( 'has an image' )
     ->expect( fn () => PostModel::factory()->create() )
-    ->contents->toBeString();
+    ->contents->toBeNull();
 
 it( 'has a hidden column' )
     ->expect( fn () => PostModel::factory()->create() )

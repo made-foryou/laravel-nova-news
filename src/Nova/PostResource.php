@@ -2,6 +2,7 @@
 
 namespace MennoTempelaar\NovaNewsTool\Nova;
 
+use Advoor\NovaEditorJs\NovaEditorJs;
 use Advoor\NovaEditorJs\NovaEditorJsField;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -206,11 +207,6 @@ class PostResource extends Resource
                 Line::make( 'title' )
                     ->extraClasses( 'inline-block' )
                     ->asHeading(),
-
-                Line::make( 'contents' )
-                    ->resolveUsing( fn () => strip_tags( optional( $this->resource )->contents ) )
-                    ->extraClasses( 'inline-block truncate max-w-sm' )
-                    ->asSmall(),
             ] ),
 
             Stack::make( Prefix::translate( 'resource.fields.created-by' ), [

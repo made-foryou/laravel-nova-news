@@ -39,25 +39,17 @@ class PostModel extends Model
     use HasFactory;
     use SoftDeletes;
 
-
-    /**
-     * @var string[]
-     * @inheritdoc
-     */
-    protected $dates = [
-        'published_at',
-        'published_till',
-        'updated_at',
-        'created_at',
-        'deleted_at',
-    ];
-
     /**
      * @var array<string, CastsAttributes|string>
      * @inheritdoc
      */
     protected $casts = [
         'contents' => NovaEditorJsCast::class,
+        'published_at' => 'datetime',
+        'published_till' => 'datetime',
+        'updated_at' => 'datetime',
+        'created_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
     /**
