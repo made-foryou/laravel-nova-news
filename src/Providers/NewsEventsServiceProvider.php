@@ -23,6 +23,7 @@ class NewsEventsServiceProvider extends EventServiceProvider
 
         CreatingPostEvent::class => [
             SaveCreatedByListener::class,
-        ]
+        ],
     ];
+
 }

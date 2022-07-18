@@ -19,14 +19,14 @@ class Prefix
      *
      * @return string Table name prefixed with prefix from the configuration
      */
-    public static function withPrefix ( string $tableName ): string
+    public static function withPrefix(string $tableName): string
     {
 
-        $prefix = config( 'config.table_prefix', 'mt_' );
+        $prefix = config('config.table_prefix', 'mt_');
 
-        if ( Str::endsWith( $prefix, '_' ) ) {
+        if (Str::endsWith($prefix, '_')) {
 
-            return $prefix . $tableName;
+            return $prefix.$tableName;
 
         }
 
@@ -38,7 +38,7 @@ class Prefix
      * Prefixes the key with the package translation name and returns the
      * translated value of that prefixed key.
      *
-     * @param  string                 $key      The key to search the
+     * @param  string  $key  The key to search the
      *                                          translation for within this
      *                                          package translations.
      * @param  array<string, string>  $replace  The replaces :name indexes with
@@ -47,12 +47,12 @@ class Prefix
      *
      * @return string  The translated value from that key.
      */
-    public static function translate (
+    public static function translate(
         string $key,
-        array  $replace = [],
+        array $replace = [],
     ): string {
 
-        return __( self::TRANSLATION_PREFIX . $key, $replace );
+        return __(self::TRANSLATION_PREFIX.$key, $replace);
 
     }
 

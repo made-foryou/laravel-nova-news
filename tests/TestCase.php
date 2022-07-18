@@ -10,7 +10,8 @@ use \Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
-    protected function setUp (): void
+
+    protected function setUp(): void
     {
 
         parent::setUp();
@@ -19,7 +20,7 @@ class TestCase extends Orchestra
 
     }
 
-    protected function getPackageProviders ( $app ): array
+    protected function getPackageProviders($app): array
     {
 
         return [

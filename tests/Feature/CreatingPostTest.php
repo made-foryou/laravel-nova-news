@@ -5,17 +5,17 @@ use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use Orchestra\Testbench\Factories\UserFactory;
 
 
-uses( RefreshDatabase::class );
+uses(RefreshDatabase::class);
 
-it( 'associates the active user to the post', function () {
+it('associates the active user to the post', function () {
 
-    $user = ( new UserFactory() )->create();
+    $user = (new UserFactory())->create();
 
-    actingAs( $user );
+    actingAs($user);
 
     /** @var PostModel $post */
     $post = PostModel::factory()->create();
 
     expect($post->createdBy->id)->toBe($user->id);
 
-} );
+});

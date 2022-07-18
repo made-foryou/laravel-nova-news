@@ -14,9 +14,12 @@ use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
 class SavingPostEvent
 {
+
     use Dispatchable, SerializesModels;
+
 
     public function __construct(
         public PostModel $post,
     ) { }
+
 }

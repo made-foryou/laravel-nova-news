@@ -56,10 +56,10 @@ class PostResource extends Resource
      *
      * @inheritdoc
      */
-    public static function label (): string
+    public static function label(): string
     {
 
-        return Prefix::translate( 'resource.label' );
+        return Prefix::translate('resource.label');
 
     }
 
@@ -70,10 +70,10 @@ class PostResource extends Resource
      *
      * @inheritdoc
      */
-    public static function singularLabel (): string
+    public static function singularLabel(): string
     {
 
-        return Prefix::translate( 'resource.singularLabel' );
+        return Prefix::translate('resource.singularLabel');
 
     }
 
@@ -84,105 +84,105 @@ class PostResource extends Resource
      *
      * @inheritdoc
      */
-    public function fields ( NovaRequest $request ): array
+    public function fields(NovaRequest $request): array
     {
 
         return [
 
-            Panel::make( Prefix::translate( 'resource.fields.general-panel' ), [
+            Panel::make(Prefix::translate('resource.fields.general-panel'), [
                 TextCounted::make(
-                    Prefix::translate( 'resource.fields.title' ),
+                    Prefix::translate('resource.fields.title'),
                     'title'
                 )
-                    ->rules( 'required' )
-                    ->minChars( 10 )
-                    ->maxChars( 120 )
-                    ->warningAt( 70 )
-                    ->help( Prefix::translate( 'resource.fields.title-help' ) ),
+                    ->rules('required')
+                    ->minChars(10)
+                    ->maxChars(120)
+                    ->warningAt(70)
+                    ->help(Prefix::translate('resource.fields.title-help')),
 
                 Slug::make(
-                    Prefix::translate( 'resource.fields.slug' ),
+                    Prefix::translate('resource.fields.slug'),
                     'slug',
                 )
-                    ->help( Prefix::translate( 'resource.fields.slug-help' ) )
+                    ->help(Prefix::translate('resource.fields.slug-help'))
                     ->showOnUpdating()
                     ->hideWhenCreating()
                     ->hideFromIndex(),
 
                 Image::make(
-                    Prefix::translate( 'resource.fields.poster' ),
+                    Prefix::translate('resource.fields.poster'),
                     'image',
-                )->help( Prefix::translate( 'resource.fields.poster-help' ) ),
+                )->help(Prefix::translate('resource.fields.poster-help')),
 
                 NovaEditorJsField::make(
-                    Prefix::translate( 'resource.fields.contents' ),
+                    Prefix::translate('resource.fields.contents'),
                     'contents',
                 ),
 
-            ] )->withToolbar(),
+            ])->withToolbar(),
 
-            Panel::make( Prefix::translate( 'resource.fields.visibility-panel' ), [
+            Panel::make(Prefix::translate('resource.fields.visibility-panel'), [
                 Boolean::make(
-                    Prefix::translate( 'resource.fields.hidden' ),
+                    Prefix::translate('resource.fields.hidden'),
                     'hidden',
-                )->help( Prefix::translate( 'resource.fields.hidden-help' ) ),
+                )->help(Prefix::translate('resource.fields.hidden-help')),
 
                 DateTime::make(
-                    Prefix::translate( 'resource.fields.published-at' ),
+                    Prefix::translate('resource.fields.published-at'),
                     'published_at',
                 )
                     ->nullable()
-                    ->help( Prefix::translate( 'resource.fields.published-at-help' ) ),
+                    ->help(Prefix::translate('resource.fields.published-at-help')),
 
                 DateTime::make(
-                    Prefix::translate( 'resource.fields.published-till' ),
+                    Prefix::translate('resource.fields.published-till'),
                     'published_till',
                 )
                     ->nullable()
-                    ->help( Prefix::translate( 'resource.fields.published-till-help' ) ),
+                    ->help(Prefix::translate('resource.fields.published-till-help')),
 
-            ] )->help( Prefix::translate( 'resource.fields.visibility-panel-help' ) ),
+            ])->help(Prefix::translate('resource.fields.visibility-panel-help')),
 
-            Panel::make( Prefix::translate( 'resource.fields.technical-panel' ), [
+            Panel::make(Prefix::translate('resource.fields.technical-panel'), [
                 ID::make()->onlyOnDetail(),
 
                 DateTime::make(
-                    Prefix::translate( 'resource.fields.updated' ),
+                    Prefix::translate('resource.fields.updated'),
                     'updated_at',
                 )
                     ->readonly()
                     ->onlyOnDetail(),
 
-                Stack::make( Prefix::translate( 'resource.fields.created-by' ), [
+                Stack::make(Prefix::translate('resource.fields.created-by'), [
 
                     BelongsTo::make(
-                        Prefix::translate( 'resource.fields.created-by' ),
+                        Prefix::translate('resource.fields.created-by'),
                         'createdBy',
                         self::class,
                     )
                         ->readonly()
                         ->onlyOnDetail()
-                        ->displayUsing( function ( $value ) {
+                        ->displayUsing(function ($value) {
 
                             return $value->name;
-                        } ),
+                        }),
 
                     DateTime::make(
-                        Prefix::translate( 'resource.fields.created' ),
+                        Prefix::translate('resource.fields.created'),
                         'created_at',
                     )
                         ->readonly()
                         ->onlyOnDetail(),
 
-                ] )->onlyOnDetail()->readonly(),
+                ])->onlyOnDetail()->readonly(),
 
                 DateTime::make(
-                    Prefix::translate( 'resource.fields.deleted' ),
+                    Prefix::translate('resource.fields.deleted'),
                     'deleted_at',
                 )
                     ->readonly()
                     ->onlyOnDetail(),
-            ] ),
+            ]),
 
         ];
 
@@ -193,41 +193,41 @@ class PostResource extends Resource
      *
      * @returns array<int, Field|Panel>
      */
-    public function fieldsForIndex (): array
+    public function fieldsForIndex(): array
     {
 
         return [
 
             Image::make(
-                Prefix::translate( 'resource.fields.poster' ),
+                Prefix::translate('resource.fields.poster'),
                 'image',
             ),
 
-            Stack::make( Prefix::translate( 'resource.fields.index-stack' ), [
-                Line::make( 'title' )
-                    ->extraClasses( 'inline-block' )
+            Stack::make(Prefix::translate('resource.fields.index-stack'), [
+                Line::make('title')
+                    ->extraClasses('inline-block')
                     ->asHeading(),
-            ] ),
+            ]),
 
-            Stack::make( Prefix::translate( 'resource.fields.created-by' ), [
+            Stack::make(Prefix::translate('resource.fields.created-by'), [
 
                 BelongsTo::make(
-                    Prefix::translate( 'resource.fields.created-by' ),
+                    Prefix::translate('resource.fields.created-by'),
                     'createdBy',
                     self::class,
                 )
-                    ->displayUsing( function ( $value ) {
+                    ->displayUsing(function ($value) {
 
                         return $value->name;
 
-                    } ),
+                    }),
 
                 DateTime::make(
-                    Prefix::translate( 'resource.fields.created' ),
+                    Prefix::translate('resource.fields.created'),
                     'created_at',
                 ),
 
-            ] ),
+            ]),
 
         ];
 
@@ -240,7 +240,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function cards ( NovaRequest $request ): array
+    public function cards(NovaRequest $request): array
     {
 
         return [];
@@ -253,7 +253,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function filters ( NovaRequest $request ): array
+    public function filters(NovaRequest $request): array
     {
 
         return [];
@@ -266,7 +266,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function lenses ( NovaRequest $request ): array
+    public function lenses(NovaRequest $request): array
     {
 
         return [];
@@ -279,7 +279,7 @@ class PostResource extends Resource
      *
      * @return array
      */
-    public function actions ( NovaRequest $request ): array
+    public function actions(NovaRequest $request): array
     {
 
         return [];

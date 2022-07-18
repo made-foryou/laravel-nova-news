@@ -11,7 +11,8 @@ class CreatingPostEvent
 
     use Dispatchable;
 
-    public function __construct (
+
+    public function __construct(
         public PostModel $post
     ) { }
 

@@ -23,4 +23,5 @@ class NewsNovaServiceProvider extends NovaApplicationServiceProvider
         ]);
 
     }
+
 }
