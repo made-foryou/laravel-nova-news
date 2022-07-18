@@ -19,4 +19,5 @@ class NewsNovaServiceProvider extends NovaApplicationServiceProvider
             PostResource::class,
         ]);
     }
+
 }

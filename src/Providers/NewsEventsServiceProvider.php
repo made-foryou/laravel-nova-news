@@ -24,4 +24,5 @@ class NewsEventsServiceProvider extends EventServiceProvider
             SaveCreatedByListener::class,
         ],
     ];
+
 }
