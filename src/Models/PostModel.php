@@ -2,6 +2,8 @@
 
 namespace MennoTempelaar\NovaNewsTool\Models;
 
+use Advoor\NovaEditorJs\NovaEditorJsCast;
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -38,14 +40,16 @@ class PostModel extends Model
     use SoftDeletes;
 
     /**
+     * @var array<string, CastsAttributes|string>
      * @inheritdoc
      */
-    protected $dates = [
-        'published_at',
-        'published_till',
-        'updated_at',
-        'created_at',
-        'deleted_at',
+    protected $casts = [
+        'contents' => NovaEditorJsCast::class,
+        'published_at' => 'datetime',
+        'published_till' => 'datetime',
+        'updated_at' => 'datetime',
+        'created_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
     /**
