@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "advoor/nova-editor-js",
-            "version": "v3.0.2",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/advoor/nova-editor-js.git",
-                "reference": "b6f5dfa52f8f57526afc8b3484ad828d776ae677"
+                "reference": "847187cad7807dae0eb3a310968ec8e0ca3210e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/advoor/nova-editor-js/zipball/b6f5dfa52f8f57526afc8b3484ad828d776ae677",
-                "reference": "b6f5dfa52f8f57526afc8b3484ad828d776ae677",
+                "url": "https://api.github.com/repos/advoor/nova-editor-js/zipball/847187cad7807dae0eb3a310968ec8e0ca3210e3",
+                "reference": "847187cad7807dae0eb3a310968ec8e0ca3210e3",
                 "shasum": ""
             },
             "require": {
@@ -59,9 +59,9 @@
             ],
             "support": {
                 "issues": "https://github.com/advoor/nova-editor-js/issues",
-                "source": "https://github.com/advoor/nova-editor-js/tree/v3.0.2"
+                "source": "https://github.com/advoor/nova-editor-js/tree/v3.0.4"
             },
-            "time": "2022-07-07T08:21:48+00:00"
+            "time": "2022-07-17T15:33:40+00:00"
         },
         {
             "name": "box/spout",
@@ -1470,16 +1470,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.19.0",
+            "version": "v9.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "bbce25bd823133f6a5a724f2d62680b711f1d0df"
+                "reference": "c99868f1c9bf2f5d250993121838db905591864f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/bbce25bd823133f6a5a724f2d62680b711f1d0df",
-                "reference": "bbce25bd823133f6a5a724f2d62680b711f1d0df",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c99868f1c9bf2f5d250993121838db905591864f",
+                "reference": "c99868f1c9bf2f5d250993121838db905591864f",
                 "shasum": ""
             },
             "require": {
@@ -1645,21 +1645,21 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-06-28T14:33:19+00:00"
+            "time": "2022-07-13T13:26:22+00:00"
         },
         {
             "name": "laravel/nova",
-            "version": "4.11.1",
+            "version": "4.12.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:laravel/nova.git",
-                "reference": "fb662b6a9100f0cd2a490fd09d627dc719b68d90"
+                "reference": "65b9c6e4d8a3c5b4234a2005a42db9c8f83eb4f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-fb662b6a9100f0cd2a490fd09d627dc719b68d90-zip-927456.zip",
-                "reference": "fb662b6a9100f0cd2a490fd09d627dc719b68d90",
-                "shasum": "1c483517592690bbf39bb5708b6e904cf7da6af1"
+                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-65b9c6e4d8a3c5b4234a2005a42db9c8f83eb4f3-zip-39bdd6.zip",
+                "reference": "65b9c6e4d8a3c5b4234a2005a42db9c8f83eb4f3",
+                "shasum": "62a4cc8266a63b3ea4dc5d6b6dc5120ba9548320"
             },
             "require": {
                 "brick/money": "^0.5.0",
@@ -1753,9 +1753,9 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/laravel/nova/tree/v4.11.1"
+                "source": "https://github.com/laravel/nova/tree/v4.12.6"
             },
-            "time": "2022-06-29T19:17:37+00:00"
+            "time": "2022-07-13T15:31:53+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -1879,16 +1879,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "0da1dca5781dd3cfddbe328224d9a7a62571addc"
+                "reference": "155ec1c95626b16fda0889cf15904d24890a60d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/0da1dca5781dd3cfddbe328224d9a7a62571addc",
-                "reference": "0da1dca5781dd3cfddbe328224d9a7a62571addc",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/155ec1c95626b16fda0889cf15904d24890a60d5",
+                "reference": "155ec1c95626b16fda0889cf15904d24890a60d5",
                 "shasum": ""
             },
             "require": {
@@ -1981,7 +1981,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-07T21:28:26+00:00"
+            "time": "2022-07-17T16:25:47+00:00"
         },
         {
             "name": "league/config",
@@ -2067,16 +2067,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "34a68067b7ae3b836ea5e57e1fc432478372a4f5"
+                "reference": "1a941703dfb649f9b821e7bc425e782f576a805e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/34a68067b7ae3b836ea5e57e1fc432478372a4f5",
-                "reference": "34a68067b7ae3b836ea5e57e1fc432478372a4f5",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1a941703dfb649f9b821e7bc425e782f576a805e",
+                "reference": "1a941703dfb649f9b821e7bc425e782f576a805e",
                 "shasum": ""
             },
             "require": {
@@ -2137,7 +2137,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.1.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.1.1"
             },
             "funding": [
                 {
@@ -2153,7 +2153,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-29T17:29:54+00:00"
+            "time": "2022-07-18T09:59:40+00:00"
         },
         {
             "name": "league/glide",
