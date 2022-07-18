@@ -62,10 +62,5 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "@php artisan vendor:publish --provider=\"Advoor\\NovaEditorJs\\FieldServiceProvider\""
-        ]
     }
 }
