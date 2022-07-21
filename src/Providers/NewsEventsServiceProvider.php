@@ -1,12 +1,12 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Providers;
+namespace Bondgenoot\NovaNewsTool\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
-use MennoTempelaar\NovaNewsTool\Events\CreatingPostEvent;
-use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
-use MennoTempelaar\NovaNewsTool\Listeners\SaveCreatedByListener;
-use MennoTempelaar\NovaNewsTool\Listeners\UpdatePostSlugListener;
+use Bondgenoot\NovaNewsTool\Events\CreatingPostEvent;
+use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
+use Bondgenoot\NovaNewsTool\Listeners\SaveCreatedByListener;
+use Bondgenoot\NovaNewsTool\Listeners\UpdatePostSlugListener;
 
 class NewsEventsServiceProvider extends EventServiceProvider
 {

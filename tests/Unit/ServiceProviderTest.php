@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use MennoTempelaar\NovaNewsTool\Providers\NewsEventsServiceProvider;
-use MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider;
+use Bondgenoot\NovaNewsTool\Providers\NewsEventsServiceProvider;
+use Bondgenoot\NovaNewsTool\Providers\NewsServiceProvider;
 
 uses(RefreshDatabase::class);
 

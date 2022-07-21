@@ -1,6 +1,6 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Providers;
+namespace Bondgenoot\NovaNewsTool\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
