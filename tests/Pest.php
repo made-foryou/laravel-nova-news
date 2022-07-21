@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Contracts\Auth\Authenticatable;
 use Bondgenoot\NovaNewsTool\Tests\TestCase;
-
+use Illuminate\Contracts\Auth\Authenticatable;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +27,6 @@ uses(TestCase::class)->in(__DIR__);
 |
 */
 
-
 /*
 |--------------------------------------------------------------------------
 | Functions
@@ -45,12 +43,9 @@ uses(TestCase::class)->in(__DIR__);
  *
  * @param  Authenticatable  $user
  * @param  string|null  $driver
- *
  * @return TestCase
  */
 function actingAs(Authenticatable $user, string $driver = null): TestCase
 {
-
     return test()->actingAs($user, $driver);
-
 }

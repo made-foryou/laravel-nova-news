@@ -28,18 +28,18 @@ return [
         'hidden' => 'Hide the post?',
         'hidden-help' => 'The message will not be displayed on the website when this field is checked.',
 
-        'published-at'      => 'Publish post on',
+        'published-at' => 'Publish post on',
         'published-at-help' => '',
 
-        'published-till'      => 'Publish post till',
+        'published-till' => 'Publish post till',
         'published-till-help' => '',
 
         'technical-panel' => 'Technical information',
 
-        'updated'    => 'Last updated at',
-        'created'    => 'Created at',
+        'updated' => 'Last updated at',
+        'created' => 'Created at',
         'created-by' => 'Created by',
-        'deleted'    => 'Deleted at',
+        'deleted' => 'Deleted at',
 
         'index-stack' => 'PostModel',
 

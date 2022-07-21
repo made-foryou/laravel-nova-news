@@ -2,19 +2,17 @@
 
 namespace Bondgenoot\NovaNewsTool\Database\Factories;
 
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use JetBrains\PhpStorm\ArrayShape;
-use Bondgenoot\NovaNewsTool\Models\PostModel;
-
 
 /**
  * @extends Factory<PostModel>
  */
 class PostFactory extends Factory
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $model = PostModel::class;
 
@@ -24,22 +22,20 @@ class PostFactory extends Factory
      * @return array<string, mixed>
      */
     #[ArrayShape([
-        'title'          => "string",
-        'image'          => "string",
-        'hidden'         => "bool",
-        'published_at'   => "\DateTime",
+        'title' => 'string',
+        'image' => 'string',
+        'hidden' => 'bool',
+        'published_at' => "\DateTime",
         'published_till' => "\DateTime",
-    ])] public function definition(): array
-    {
-
-        return [
-            'title'          => $this->faker->sentence(4, false),
-            'image'          => $this->faker->image,
-            'hidden'         => $this->faker->boolean,
-            'published_at'   => $this->faker->dateTime,
-            'published_till' => $this->faker->dateTime,
-        ];
-
-    }
-
+    ])]
+ public function definition(): array
+ {
+     return [
+         'title' => $this->faker->sentence(4, false),
+         'image' => $this->faker->image,
+         'hidden' => $this->faker->boolean,
+         'published_at' => $this->faker->dateTime,
+         'published_till' => $this->faker->dateTime,
+     ];
+ }
 }

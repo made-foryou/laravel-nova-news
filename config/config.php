@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User;
-
 
 return [
 
@@ -22,7 +20,7 @@ return [
      *
      * Configuration setting for using a custom author implementation.
      */
-    'author'       => [
+    'author' => [
         /**
          * The model name which will be used as relation for the author
          * of posts

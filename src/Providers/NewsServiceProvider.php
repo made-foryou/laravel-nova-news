@@ -4,10 +4,8 @@ namespace Bondgenoot\NovaNewsTool\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-
 class NewsServiceProvider extends ServiceProvider
 {
-
     public function register()
     {
 
@@ -23,12 +21,10 @@ class NewsServiceProvider extends ServiceProvider
             __DIR__.'/../../lang',
             'nova-news-tool'
         );
-
     }
 
     public function boot()
     {
-
         if ($this->app->runningInConsole()) {
 
             // Exports the configuration file from this package to the project
@@ -50,9 +46,6 @@ class NewsServiceProvider extends ServiceProvider
                 ],
                 'translations'
             );
-
         }
-
     }
-
 }

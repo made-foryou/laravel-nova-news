@@ -2,18 +2,17 @@
 
 namespace Bondgenoot\NovaNewsTool\Providers;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Bondgenoot\NovaNewsTool\Events\CreatingPostEvent;
 use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
 use Bondgenoot\NovaNewsTool\Listeners\SaveCreatedByListener;
 use Bondgenoot\NovaNewsTool\Listeners\UpdatePostSlugListener;
-
+use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 
 class NewsEventsServiceProvider extends EventServiceProvider
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     *
      * @var array<string, array<string>>
      */
     protected $listen = [
@@ -25,5 +24,4 @@ class NewsEventsServiceProvider extends EventServiceProvider
             SaveCreatedByListener::class,
         ],
     ];
-
 }
