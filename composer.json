@@ -1,8 +1,8 @@
 {
-    "name": "mennotempelaar/nova-news-resource-tool",
+    "name": "bondgenoot/nova-news-module",
     "description": "A resource tool for Laravel Nova which adds content management features for managing news posts.",
     "license": "MIT",
-    "version": "0.0.0",
+    "version": "0.3.0",
     "keywords": [
         "laraval",
         "nova",
