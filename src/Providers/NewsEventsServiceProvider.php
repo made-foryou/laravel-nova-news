@@ -8,11 +8,12 @@ use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
 use Bondgenoot\NovaNewsTool\Listeners\SaveCreatedByListener;
 use Bondgenoot\NovaNewsTool\Listeners\UpdatePostSlugListener;
 
+
 class NewsEventsServiceProvider extends EventServiceProvider
 {
+
     /**
-     * {@inheritdoc}
-     *
+     * @inheritdoc
      * @var array<string, array<string>>
      */
     protected $listen = [

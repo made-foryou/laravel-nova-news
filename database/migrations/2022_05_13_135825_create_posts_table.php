@@ -6,6 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Bondgenoot\NovaNewsTool\Utils\Prefix;
 
+
 return new class extends Migration
 {
 
@@ -20,6 +21,7 @@ return new class extends Migration
         Schema::create(
             Prefix::withPrefix('posts'),
             function (Blueprint $table) {
+
                 $table->id();
 
                 $table->string('title', 120);
@@ -56,6 +58,7 @@ return new class extends Migration
                     ->references($model->getKeyName())
                     ->on($model->getTable())
                     ->onDelete('RESTRICT');
+
             }
         );
     }
@@ -70,4 +73,5 @@ return new class extends Migration
 
         Schema::dropIfExists(Prefix::withPrefix('posts'));
     }
+
 };
