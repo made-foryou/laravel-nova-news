@@ -8,12 +8,11 @@ use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
 use MennoTempelaar\NovaNewsTool\Listeners\SaveCreatedByListener;
 use MennoTempelaar\NovaNewsTool\Listeners\UpdatePostSlugListener;
 
-
 class NewsEventsServiceProvider extends EventServiceProvider
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     *
      * @var array<string, array<string>>
      */
     protected $listen = [
@@ -23,6 +22,6 @@ class NewsEventsServiceProvider extends EventServiceProvider
 
         CreatingPostEvent::class => [
             SaveCreatedByListener::class,
-        ]
+        ],
     ];
 }

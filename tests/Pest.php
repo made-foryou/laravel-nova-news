@@ -27,8 +27,6 @@ uses(TestCase::class)->in(__DIR__);
 |
 */
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Functions
@@ -44,8 +42,7 @@ uses(TestCase::class)->in(__DIR__);
  * Set the currently logged-in user for the application.
  *
  * @param  Authenticatable  $user
- * @param  string|null      $driver
- *
+ * @param  string|null  $driver
  * @return TestCase
  */
 function actingAs(Authenticatable $user, string $driver = null): TestCase

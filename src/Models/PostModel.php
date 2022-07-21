@@ -16,7 +16,6 @@ use MennoTempelaar\NovaNewsTool\Events\CreatingPostEvent;
 use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
 use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 
-
 /**
  * @property-read int $id
  * @property string   $title
@@ -30,18 +29,16 @@ use MennoTempelaar\NovaNewsTool\Utils\Prefix;
  * @property Carbon   $created_at
  * @property Carbon   $deleted_at
  * @property int      $created_by
- *
  * @property User     $createdBy
  */
 class PostModel extends Model
 {
-
     use HasFactory;
     use SoftDeletes;
 
     /**
      * @var array<string, CastsAttributes|string>
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $casts = [
         'contents' => NovaEditorJsCast::class,
@@ -54,7 +51,7 @@ class PostModel extends Model
 
     /**
      * @var array<string, string>
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $dispatchesEvents = [
         'saving' => SavingPostEvent::class,
@@ -62,35 +59,28 @@ class PostModel extends Model
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $guarded = [];
 
     public function createdBy(): BelongsTo
     {
-
         return $this->belongsTo(User::class, 'created_by');
-
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function getTable (): string
+    public function getTable(): string
     {
-
-        return Prefix::withPrefix( 'posts' );
-
+        return Prefix::withPrefix('posts');
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    protected static function newFactory (): Factory
+    protected static function newFactory(): Factory
     {
-
         return PostFactory::new();
-
     }
-
 }

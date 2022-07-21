@@ -5,7 +5,6 @@ namespace MennoTempelaar\NovaNewsTool\Database\Seeders;
 use Illuminate\Database\Seeder;
 use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
-
 class PostSeeder extends Seeder
 {
     /**

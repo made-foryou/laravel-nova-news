@@ -2,30 +2,30 @@
 
 return [
 
-    'label'         => 'Posts',
+    'label' => 'Posts',
     'singularLabel' => 'PostModel',
 
     'fields' => [
         'general-panel' => 'General post information',
 
-        'title'      => 'Title',
+        'title' => 'Title',
         'title-help' => 'The preferred length of a good title is 60 characters long. Keep in
              mind that Google can only show 70 characters, and the absolute max is around 120
              characters.',
 
-        'slug'      => 'Slug',
+        'slug' => 'Slug',
         'slug-help' => 'The slug is used in the url of the message and ensures that the url goes 
             only to this message.',
 
-        'poster'      => 'Poster',
+        'poster' => 'Poster',
         'poster-help' => 'This image will be shown as main image for the post.',
 
         'contents' => 'Contents',
 
-        'visibility-panel'      => 'Visibility settings',
+        'visibility-panel' => 'Visibility settings',
         'visibility-panel-help' => 'Settings which indicates the visibility of the post on the website.',
 
-        'hidden'      => 'Hide the post?',
+        'hidden' => 'Hide the post?',
         'hidden-help' => 'The message will not be displayed on the website when this field is checked.',
 
         'published-at' => 'Publish post on',
