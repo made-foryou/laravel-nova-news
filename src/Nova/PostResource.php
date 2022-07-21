@@ -1,8 +1,7 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Nova;
+namespace Bondgenoot\NovaNewsTool\Nova;
 
-use Advoor\NovaEditorJs\NovaEditorJs;
 use Advoor\NovaEditorJs\NovaEditorJsField;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -14,8 +13,8 @@ use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Panel;
 use Marshmallow\CharcountedFields\TextCounted;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
-use MennoTempelaar\NovaNewsTool\Utils\Prefix;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
+use Bondgenoot\NovaNewsTool\Utils\Prefix;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;

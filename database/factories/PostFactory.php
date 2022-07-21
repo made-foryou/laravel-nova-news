@@ -1,10 +1,10 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Database\Factories;
+namespace Bondgenoot\NovaNewsTool\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use JetBrains\PhpStorm\ArrayShape;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 
 
 /**

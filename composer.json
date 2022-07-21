@@ -1,5 +1,5 @@
 {
-    "name": "mennotempelaar/nova-news-resource-tool",
+    "name": "bondgenoot/laravel-nova-news",
     "description": "A resource tool for Laravel Nova which adds content management features for managing news posts.",
     "license": "MIT",
     "version": "0.0.0",
@@ -39,23 +39,23 @@
     },
     "autoload": {
         "psr-4": {
-            "MennoTempelaar\\NovaNewsTool\\": "src",
-            "MennoTempelaar\\NovaNewsTool\\Database\\Factories\\": "database/factories",
-            "MennoTempelaar\\NovaNewsTool\\Database\\Seeders\\": "database/seeders"
+            "Bondgenoot\\NovaNewsTool\\": "src",
+            "Bondgenoot\\NovaNewsTool\\Database\\Factories\\": "database/factories",
+            "Bondgenoot\\NovaNewsTool\\Database\\Seeders\\": "database/seeders"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "MennoTempelaar\\NovaNewsTool\\Providers\\NewsServiceProvider",
-                "MennoTempelaar\\NovaNewsTool\\Providers\\NewsEventsServiceProvider",
-                "MennoTempelaar\\NovaNewsTool\\Providers\\NewsNovaServiceProvider"
+                "Bondgenoot\\NovaNewsTool\\Providers\\NewsServiceProvider",
+                "Bondgenoot\\NovaNewsTool\\Providers\\NewsEventsServiceProvider",
+                "Bondgenoot\\NovaNewsTool\\Providers\\NewsNovaServiceProvider"
             ]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MennoTempelaar\\NovaNewsTool\\Tests\\": "tests"
+            "Bondgenoot\\NovaNewsTool\\Tests\\": "tests"
         }
     },
     "config": {

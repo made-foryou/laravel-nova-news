@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 use Orchestra\Testbench\Factories\UserFactory;
 
 

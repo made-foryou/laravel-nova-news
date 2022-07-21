@@ -1,10 +1,10 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Providers;
+namespace Bondgenoot\NovaNewsTool\Providers;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
-use MennoTempelaar\NovaNewsTool\Nova\PostResource;
+use Bondgenoot\NovaNewsTool\Nova\PostResource;
 
 
 class NewsNovaServiceProvider extends NovaApplicationServiceProvider

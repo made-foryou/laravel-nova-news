@@ -1,15 +1,12 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Listeners;
+namespace Bondgenoot\NovaNewsTool\Listeners;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
-use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
+use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 
 use function preg_match;
-use function ray;
 
 
 class UpdatePostSlugListener

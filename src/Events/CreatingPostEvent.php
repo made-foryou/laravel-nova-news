@@ -1,9 +1,9 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Events;
+namespace Bondgenoot\NovaNewsTool\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 
 
 class CreatingPostEvent

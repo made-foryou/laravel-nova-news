@@ -1,6 +1,6 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Utils;
+namespace Bondgenoot\NovaNewsTool\Utils;
 
 use Illuminate\Support\Str;
 
@@ -11,6 +11,8 @@ class Prefix
 {
 
     const TRANSLATION_PREFIX = 'nova-news-tool::';
+
+    const CONFIG_PREFIX      = 'nova-news-tool.';
 
     /**
      * Prefixes the given table name with the prefix from the configuration.
@@ -53,6 +55,22 @@ class Prefix
     ): string {
 
         return __(self::TRANSLATION_PREFIX.$key, $replace);
+
+    }
+
+    /**
+     * Prefixes the key with the package configuration prefix and returns its
+     * value.
+     *
+     * @param  string  $key
+     * @param  mixed|null  $default
+     *
+     * @return mixed
+     */
+    public static function config(string $key, mixed $default = null): mixed
+    {
+
+        return config(self::CONFIG_PREFIX.$key, $default);
 
     }
 
