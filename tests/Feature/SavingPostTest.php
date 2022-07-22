@@ -1,10 +1,10 @@
 <?php
 
+use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
-use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use Orchestra\Testbench\Factories\UserFactory;
 
 uses(RefreshDatabase::class);

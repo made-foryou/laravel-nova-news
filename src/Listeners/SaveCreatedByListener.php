@@ -1,9 +1,9 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Listeners;
+namespace Bondgenoot\NovaNewsTool\Listeners;
 
+use Bondgenoot\NovaNewsTool\Events\CreatingPostEvent;
 use Illuminate\Support\Facades\Auth;
-use MennoTempelaar\NovaNewsTool\Events\CreatingPostEvent;
 
 class SaveCreatedByListener
 {

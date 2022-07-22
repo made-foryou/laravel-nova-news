@@ -1,8 +1,10 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Nova;
+namespace Bondgenoot\NovaNewsTool\Nova;
 
 use Advoor\NovaEditorJs\NovaEditorJsField;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
+use Bondgenoot\NovaNewsTool\Utils\Prefix;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
@@ -16,8 +18,6 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use Laravel\Nova\Resource;
 use Marshmallow\CharcountedFields\TextCounted;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
-use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 
 class PostResource extends Resource
 {
@@ -100,6 +100,15 @@ class PostResource extends Resource
                     ->showOnUpdating()
                     ->hideWhenCreating()
                     ->hideFromIndex(),
+
+                BelongsTo::make(
+                    Prefix::translate('resource.fields.author'),
+                    'author',
+                    self::class,
+                )
+                    ->nullable()
+                    ->help(Prefix::translate('resource.fields.author-help'))
+                    ->canSee(fn () => Prefix::config('author.use')),
 
                 Image::make(
                     Prefix::translate('resource.fields.poster'),

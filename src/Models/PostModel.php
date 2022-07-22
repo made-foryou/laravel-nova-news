@@ -1,8 +1,12 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Models;
+namespace Bondgenoot\NovaNewsTool\Models;
 
 use Advoor\NovaEditorJs\NovaEditorJsCast;
+use Bondgenoot\NovaNewsTool\Database\Factories\PostFactory;
+use Bondgenoot\NovaNewsTool\Events\CreatingPostEvent;
+use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
+use Bondgenoot\NovaNewsTool\Utils\Prefix;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,25 +15,22 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Carbon;
-use MennoTempelaar\NovaNewsTool\Database\Factories\PostFactory;
-use MennoTempelaar\NovaNewsTool\Events\CreatingPostEvent;
-use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
-use MennoTempelaar\NovaNewsTool\Utils\Prefix;
 
 /**
  * @property-read int $id
- * @property string   $title
- * @property string   $slug
- * @property string   $image
- * @property string   $contents
- * @property bool     $hidden
- * @property Carbon   $published_at
- * @property Carbon   $published_till
- * @property Carbon   $updated_at
- * @property Carbon   $created_at
- * @property Carbon   $deleted_at
- * @property int      $created_by
- * @property User     $createdBy
+ * @property string $title
+ * @property string $slug
+ * @property string $image
+ * @property string $contents
+ * @property bool $hidden
+ * @property Carbon $published_at
+ * @property Carbon $published_till
+ * @property Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $deleted_at
+ * @property int $created_by
+ * @property User $createdBy
+ * @property User $author
  */
 class PostModel extends Model
 {
@@ -62,6 +63,15 @@ class PostModel extends Model
      * {@inheritdoc}
      */
     protected $guarded = [];
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(
+            Prefix::config('author.model'),
+            'author_id',
+            'id'
+        );
+    }
 
     public function createdBy(): BelongsTo
     {

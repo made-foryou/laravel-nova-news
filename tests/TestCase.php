@@ -1,10 +1,10 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Tests;
+namespace Bondgenoot\NovaNewsTool\Tests;
 
-use MennoTempelaar\NovaNewsTool\Providers\NewsEventsServiceProvider;
-use MennoTempelaar\NovaNewsTool\Providers\NewsNovaServiceProvider;
-use MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider;
+use Bondgenoot\NovaNewsTool\Providers\NewsEventsServiceProvider;
+use Bondgenoot\NovaNewsTool\Providers\NewsNovaServiceProvider;
+use Bondgenoot\NovaNewsTool\Providers\NewsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

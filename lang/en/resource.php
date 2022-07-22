@@ -17,6 +17,9 @@ return [
         'slug-help' => 'The slug is used in the url of the message and ensures that the url goes 
             only to this message.',
 
+        'author' => 'Author',
+        'author-help' => 'The author will represent the user who wrote this post.',
+
         'poster' => 'Poster',
         'poster-help' => 'This image will be shown as main image for the post.',
 

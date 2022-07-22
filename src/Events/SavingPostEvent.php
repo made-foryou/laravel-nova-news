@@ -1,10 +1,10 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Events;
+namespace Bondgenoot\NovaNewsTool\Events;
 
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
 
 class SavingPostEvent
 {

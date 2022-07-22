@@ -1,9 +1,9 @@
 <?php
 
+use Bondgenoot\NovaNewsTool\Nova\PostResource;
+use Bondgenoot\NovaNewsTool\Providers\NewsNovaServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Nova\Nova;
-use MennoTempelaar\NovaNewsTool\Nova\PostResource;
-use MennoTempelaar\NovaNewsTool\Providers\NewsNovaServiceProvider;
 
 uses(RefreshDatabase::class);
 

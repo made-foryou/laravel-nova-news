@@ -1,10 +1,10 @@
 <?php
 
-namespace MennoTempelaar\NovaNewsTool\Listeners;
+namespace Bondgenoot\NovaNewsTool\Listeners;
 
+use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 use Illuminate\Support\Str;
-use MennoTempelaar\NovaNewsTool\Events\SavingPostEvent;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use function preg_match;
 
 class UpdatePostSlugListener
@@ -22,7 +22,7 @@ class UpdatePostSlugListener
         }
 
         if (! $this->changedSlugManually($event->post)
-             && ! $this->changedTitle($event->post)
+            && ! $this->changedTitle($event->post)
         ) {
             return;
         }
@@ -65,9 +65,9 @@ class UpdatePostSlugListener
 
                 return $posts->filter(
                     fn ($post) => preg_match(
-                                        "^{$slug}(-\d+)?$^",
-                                        $post->slug,
-                                    ) === 1,
+                                     "^{$slug}(-\d+)?$^",
+                                     $post->slug,
+                                 ) === 1,
                 )->count();
             }
         }
@@ -80,9 +80,9 @@ class UpdatePostSlugListener
             return PostModel::all()
                 ->filter(
                     fn ($post) => preg_match(
-                                        "^{$slug}(-\d+)?$^",
-                                        $post->slug,
-                                    ) === 1,
+                                     "^{$slug}(-\d+)?$^",
+                                     $post->slug,
+                                 ) === 1,
                 )->count();
         }
     }

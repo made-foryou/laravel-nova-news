@@ -1,15 +1,18 @@
 <?php
 
+use Bondgenoot\NovaNewsTool\Models\PostModel;
+use Bondgenoot\NovaNewsTool\Utils\Config;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use Orchestra\Testbench\Factories\UserFactory;
 
+uses(DatabaseMigrations::class);
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    $user = ( new UserFactory() )->create();
+    $user = (new UserFactory())->create();
 
     actingAs($user);
 });
@@ -43,6 +46,17 @@ it('could not have a published_till date')
         fn () => PostModel::factory()->create(['published_till' => null]),
     )
     ->published_till->toBeNull();
+
+it('can have an author', function () {
+    $user = (new UserFactory)->create();
+
+    $post = PostModel::factory()->create([
+        'author_id' => $user->id,
+    ]);
+
+    expect($post)->toBeInstanceOf(PostModel::class);
+    expect($post->author)->toBeInstanceOf(Config::authorClassname());
+});
 
 it('has a updated_at date')
     ->expect(fn () => PostModel::factory()->create())

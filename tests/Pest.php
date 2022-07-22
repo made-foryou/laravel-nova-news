@@ -1,7 +1,7 @@
 <?php
 
+use Bondgenoot\NovaNewsTool\Tests\TestCase;
 use Illuminate\Contracts\Auth\Authenticatable;
-use MennoTempelaar\NovaNewsTool\Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------

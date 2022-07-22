@@ -1,13 +1,13 @@
 <?php
 
+use Bondgenoot\NovaNewsTool\Models\PostModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use MennoTempelaar\NovaNewsTool\Models\PostModel;
 use Orchestra\Testbench\Factories\UserFactory;
 
 uses(RefreshDatabase::class);
 
 it('associates the active user to the post', function () {
-    $user = ( new UserFactory() )->create();
+    $user = (new UserFactory())->create();
 
     actingAs($user);
 
