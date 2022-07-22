@@ -4,6 +4,8 @@ use Bondgenoot\NovaNewsTool\Utils\Prefix;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\SQLiteConnection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -22,7 +24,7 @@ return new class extends Migration
                 /** @var Model $model */
                 $model = new $model();
 
-                $table->foreign('author')
+                $table->foreign('author_id')
                     ->references($model->getKeyName())
                     ->on($model->getTable())
                     ->onDelete('SET NULL');
@@ -32,12 +34,14 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::table(
-            Prefix::withPrefix('posts'),
-            function (Blueprint $table) {
-                $table->dropForeign('author_id');
-            },
-        );
+        if (! DB::connection() instanceof SQLiteConnection) {
+            Schema::table(
+                Prefix::withPrefix('posts'),
+                function (Blueprint $table) {
+                    $table->dropForeign('author_id');
+                },
+            );
+        }
 
         Schema::table(
             Prefix::withPrefix('posts'),
