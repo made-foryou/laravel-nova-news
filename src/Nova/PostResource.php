@@ -107,7 +107,8 @@ class PostResource extends Resource
                     self::class,
                 )
                     ->nullable()
-                    ->help(Prefix::translate('resource.fields.author-help')),
+                    ->help(Prefix::translate('resource.fields.author-help'))
+                    ->canSee(fn () => Prefix::config('author.use')),
 
                 Image::make(
                     Prefix::translate('resource.fields.poster'),

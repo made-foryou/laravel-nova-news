@@ -20,6 +20,15 @@ return [
      */
     'author' => [
         /**
+         * This defines whether to show the author feature or not.
+         *
+         * (i) When false, it hides the author field from the nova panel.
+         *
+         * @type bool
+         */
+        'use' => true,
+
+        /**
          * The model name which will be used as relation for the author
          * of posts
          */
