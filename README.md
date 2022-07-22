@@ -6,12 +6,12 @@ This package contains management features for managing a news section within a w
 At first, we need to install the package onto our Laravel application:
 
 ```shell
-composer require mennotempelaar/nova-news-resource-tool
+composer require bondgenoot/laravel-nova-news
 ```
 
 To publish the configuration files from this package:
 ```shell
-php artisan vendor:publish --provider="MennoTempelaar\NovaNewsTool\Providers\NewsServiceProvider"
+php artisan vendor:publish --provider="Bondgenoot\NovaNewsTool\Providers\NewsServiceProvider"
 ```
 
 Now we need to publish the files from the [advoor/nova-editor-js](https://github.com/advoor/nova-editor-js) package.
