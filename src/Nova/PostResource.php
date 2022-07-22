@@ -101,6 +101,14 @@ class PostResource extends Resource
                     ->hideWhenCreating()
                     ->hideFromIndex(),
 
+                BelongsTo::make(
+                    Prefix::translate('resource.fields.author'),
+                    'author',
+                    self::class,
+                )
+                    ->nullable()
+                    ->help(Prefix::translate('resource.fields.author-help')),
+
                 Image::make(
                     Prefix::translate('resource.fields.poster'),
                     'image',
