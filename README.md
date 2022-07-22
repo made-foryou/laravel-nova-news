@@ -6,7 +6,7 @@ This package contains management features for managing a news section within a w
 At first, we need to install the package onto our Laravel application:
 
 ```shell
-composer require bondgenoot/nova-news-resource-tool
+composer require bondgenoot/laravel-nova-news
 ```
 
 To publish the configuration files from this package:
