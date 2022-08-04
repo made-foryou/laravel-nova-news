@@ -51,7 +51,10 @@
                 "Bondgenoot\\NovaNewsTool\\Providers\\NewsServiceProvider",
                 "Bondgenoot\\NovaNewsTool\\Providers\\NewsEventsServiceProvider",
                 "Bondgenoot\\NovaNewsTool\\Providers\\NewsNovaServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "News": "Bondgenoot\\NovaNewsTool\\Facades\\News"
+            }
         }
     },
     "autoload-dev": {
