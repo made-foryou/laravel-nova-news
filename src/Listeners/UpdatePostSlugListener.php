@@ -65,9 +65,9 @@ class UpdatePostSlugListener
 
                 return $posts->filter(
                     fn ($post) => preg_match(
-                                     "^{$slug}(-\d+)?$^",
-                                     $post->slug,
-                                 ) === 1,
+                        "^{$slug}(-\d+)?$^",
+                        $post->slug,
+                    ) === 1,
                 )->count();
             }
         }
@@ -80,9 +80,9 @@ class UpdatePostSlugListener
             return PostModel::all()
                 ->filter(
                     fn ($post) => preg_match(
-                                     "^{$slug}(-\d+)?$^",
-                                     $post->slug,
-                                 ) === 1,
+                        "^{$slug}(-\d+)?$^",
+                        $post->slug,
+                    ) === 1,
                 )->count();
         }
     }

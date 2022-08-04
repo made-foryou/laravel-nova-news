@@ -6,6 +6,7 @@ use Advoor\NovaEditorJs\NovaEditorJsCast;
 use Bondgenoot\NovaNewsTool\Database\Factories\PostFactory;
 use Bondgenoot\NovaNewsTool\Events\CreatingPostEvent;
 use Bondgenoot\NovaNewsTool\Events\SavingPostEvent;
+use Bondgenoot\NovaNewsTool\QueryBuilders\PostQueryBuilder;
 use Bondgenoot\NovaNewsTool\Utils\Prefix;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Carbon;
 
@@ -31,6 +33,10 @@ use Illuminate\Support\Carbon;
  * @property int $created_by
  * @property User $createdBy
  * @property User $author
+ *
+ * @method static PostQueryBuilder published()
+ * @method static PostQueryBuilder visible()
+ * @method static PostQueryBuilder fromAuthor(Model $model)
  */
 class PostModel extends Model
 {
@@ -92,5 +98,16 @@ class PostModel extends Model
     protected static function newFactory(): Factory
     {
         return PostFactory::new();
+    }
+
+    /**
+     * Create a new Eloquent query builder for the model.
+     *
+     * @param  Builder  $query
+     * @return PostQueryBuilder
+     */
+    public function newEloquentBuilder($query): PostQueryBuilder
+    {
+        return new PostQueryBuilder($query);
     }
 }

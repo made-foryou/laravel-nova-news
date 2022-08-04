@@ -2,13 +2,13 @@
 
 namespace Bondgenoot\NovaNewsTool\Providers;
 
+use Bondgenoot\NovaNewsTool\Repositories\PostRepository;
 use Illuminate\Support\ServiceProvider;
 
 class NewsServiceProvider extends ServiceProvider
 {
     public function register()
     {
-
         // Merging the package configuration
         $this->mergeConfigFrom(
             __DIR__.'/../../config/config.php',
@@ -21,6 +21,8 @@ class NewsServiceProvider extends ServiceProvider
             __DIR__.'/../../lang',
             'nova-news-tool'
         );
+
+        $this->app->bind(PostRepository::class, fn () => new PostRepository());
     }
 
     public function boot()
