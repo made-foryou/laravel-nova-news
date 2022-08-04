@@ -3,6 +3,7 @@
 namespace Bondgenoot\NovaNewsTool\QueryBuilders;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
 class PostQueryBuilder extends Builder
@@ -30,5 +31,17 @@ class PostQueryBuilder extends Builder
     public function visible(): self
     {
         return $this->where('hidden', '=', '0');
+    }
+
+    /**
+     * Selects the posts from a given author model.
+     *
+     * @param  Model  $model  The Author model which you want to select the
+     *                        posts from.
+     * @return $this
+     */
+    public function fromAuthor(Model $model): self
+    {
+        return $this->where('author_id', '=', $model->getKey());
     }
 }

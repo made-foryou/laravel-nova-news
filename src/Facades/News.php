@@ -5,6 +5,7 @@ namespace Bondgenoot\NovaNewsTool\Facades;
 use Bondgenoot\NovaNewsTool\Models\PostModel;
 use Bondgenoot\NovaNewsTool\Repositories\PostRepository;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -13,7 +14,9 @@ use Illuminate\Support\Facades\Facade;
  *
  * Object to be used from the project which imports this package.
  *
- * @method static Collection<PostModel> forOverview()
+ * @method  static  Collection<PostModel>  forOverview()
+ * @method  static  Collection<PostModel>  forPreview(int $limit = 3)
+ * @method  static  News                   fromAuthor(Model $model)
  */
 class News extends Facade
 {

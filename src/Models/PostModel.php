@@ -36,6 +36,7 @@ use Illuminate\Support\Carbon;
  *
  * @method static PostQueryBuilder published()
  * @method static PostQueryBuilder visible()
+ * @method static PostQueryBuilder fromAuthor(Model $model)
  */
 class PostModel extends Model
 {

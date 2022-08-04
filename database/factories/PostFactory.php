@@ -30,15 +30,15 @@ class PostFactory extends Factory
         'published_at' => "\DateTime",
         'published_till' => "\DateTime",
     ])]
- public function definition(): array
- {
-     return [
-         'title' => $this->faker->sentence(4, false),
-         'image' => $this->faker->image,
-         'author_id' => (new UserFactory)->create(),
-         'hidden' => $this->faker->boolean,
-         'published_at' => $this->faker->dateTime,
-         'published_till' => $this->faker->dateTime,
-     ];
- }
+    public function definition(): array
+    {
+        return [
+            'title' => $this->faker->sentence(4, false),
+            'image' => $this->faker->image,
+            'author_id' => (new UserFactory)->create(),
+            'hidden' => $this->faker->boolean,
+            'published_at' => $this->faker->dateTime,
+            'published_till' => $this->faker->dateTime,
+        ];
+    }
 }
