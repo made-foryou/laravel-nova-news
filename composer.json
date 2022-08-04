@@ -2,7 +2,7 @@
     "name": "bondgenoot/laravel-nova-news",
     "description": "A resource tool for Laravel Nova which adds content management features for managing news posts.",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "laravel",
         "nova",
