@@ -3,7 +3,7 @@
 return [
 
     'label' => 'Posts',
-    'singularLabel' => 'PostModel',
+    'singularLabel' => 'Post',
 
     'fields' => [
         'general-panel' => 'General post information',
@@ -44,7 +44,7 @@ return [
         'created-by' => 'Created by',
         'deleted' => 'Deleted at',
 
-        'index-stack' => 'PostModel',
+        'index-stack' => 'Post',
 
     ],
 
