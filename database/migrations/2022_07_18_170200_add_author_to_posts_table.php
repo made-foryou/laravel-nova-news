@@ -19,15 +19,17 @@ return new class extends Migration
                     ->nullable()
                     ->after('contents');
 
-                $model = Prefix::config('author.model');
+                if (! DB::connection() instanceof SQLiteConnection) {
+                    $model = Prefix::config('author.model');
 
-                /** @var Model $model */
-                $model = new $model();
+                    /** @var Model $model */
+                    $model = new $model();
 
-                $table->foreign('author_id')
-                    ->references($model->getKeyName())
-                    ->on($model->getTable())
-                    ->onDelete('SET NULL');
+                    $table->foreign('author_id')
+                        ->references($model->getKeyName())
+                        ->on($model->getTable())
+                        ->onDelete('SET NULL');
+                }
             }
         );
     }
