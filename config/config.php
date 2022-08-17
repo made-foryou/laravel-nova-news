@@ -33,6 +33,12 @@ return [
          * of posts
          */
         'model' => config('auth.providers.users.model'),
+
+        /**
+         * The resource class which will be used within the BelongsTo Field of
+         * the post resource.
+         */
+        'resource' => 'App\\Nova\\User',
     ],
 
 ];

@@ -104,7 +104,7 @@ class PostResource extends Resource
                 BelongsTo::make(
                     Prefix::translate('resource.fields.author'),
                     'author',
-                    self::class,
+                    Prefix::config('author.resource'),
                 )
                     ->nullable()
                     ->help(Prefix::translate('resource.fields.author-help'))
