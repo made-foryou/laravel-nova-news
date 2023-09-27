@@ -2,7 +2,7 @@
     "name": "bondgenoot/laravel-nova-news",
     "description": "A resource tool for Laravel Nova which adds content management features for managing news posts.",
     "license": "MIT",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "keywords": [
         "laravel",
         "nova",
@@ -25,18 +25,18 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "laravel/nova": "~4.0",
-        "marshmallow/nova-charcounted-fields": "^2.0",
+        "marshmallow/nova-charcounted-fields": "^v2.0.1",
         "advoor/nova-editor-js": "^3.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^7.0",
-        "phpunit/phpunit": "^9.5",
-        "pestphp/pest": "^1.21",
+        "orchestra/testbench": "^8.12",
+        "phpunit/phpunit": "^10.3",
+        "pestphp/pest": "^2.19",
         "spatie/laravel-ray": "^1.29",
-        "pestphp/pest-plugin-faker": "^1.0",
-        "laravel/pint": "^1.0"
+        "pestphp/pest-plugin-faker": "^2.0",
+        "laravel/pint": "^1.13"
     },
     "autoload": {
         "psr-4": {
