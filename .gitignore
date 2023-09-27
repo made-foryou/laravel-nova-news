@@ -10,3 +10,6 @@ composer.lock
 
 # Caches
 .phpunit.result.cache
+
+# Git
+auth.json
